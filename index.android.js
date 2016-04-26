@@ -10,6 +10,9 @@ import React, {
   View,
 } from 'react-native';
 
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import PlaceholderView from './components/PlaceholderView';
 import styles from './styles/Initial';
 const actions = [
@@ -22,12 +25,17 @@ class NotitieBlok extends Component {
     return (
         <View style={{flex: 1}}>
           <ToolbarAndroid
-            style={{flex: 0, height: 56, backgroundColor: 'white'}}
+            style={styles.toolbar}
             icon={require('image!toolbar_icon')}
             navIcon={require('image!toolbar_icon')}
             title='ABC Notitie Blok'
             actions={[]} />
           <PlaceholderView />
+        <ActionButton buttonColor="#42A5F5">
+          <ActionButton.Item buttonColor="#FFC107" title="New">
+            <Icon name="android-done-all" style={{fontSize: 20, height: 22, color: 'white',}} />
+          </ActionButton.Item>
+        </ActionButton>
         </View>
     );
   }
