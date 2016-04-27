@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -37,7 +38,8 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new ExtraDimensionsPackage(this)
+            new ExtraDimensionsPackage(this),
+            new VectorIconsPackage()
         );
     }
 }

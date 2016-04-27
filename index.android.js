@@ -11,7 +11,7 @@ import React, {
 } from 'react-native';
 
 import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import PlaceholderView from './components/PlaceholderView';
 import styles from './styles/Initial';
@@ -33,7 +33,7 @@ class NotitieBlok extends Component {
           <PlaceholderView />
         <ActionButton buttonColor="#42A5F5">
           <ActionButton.Item buttonColor="#FFC107" title="New">
-            <Icon name="android-done-all" style={{fontSize: 20, height: 22, color: 'white',}} />
+            <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}} />
           </ActionButton.Item>
         </ActionButton>
         </View>
