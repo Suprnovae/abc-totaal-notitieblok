@@ -1,4 +1,4 @@
-package com.notitieblok;
+package com.suprnovae.abctotaal.notitieblok;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
