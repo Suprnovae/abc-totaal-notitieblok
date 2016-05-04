@@ -69,6 +69,7 @@ class NotitieBlok extends Component {
         initialRoute={{
           component: Main,
           title: 'Boekingen',
+					leftButtonIcon: require('image!NavBarButtonIcon'),
 					rightButtonIcon: require('image!NavBarButtonPlus'),
 					onLeftButtonPress: () => {console.log('pressed')},
         }}
