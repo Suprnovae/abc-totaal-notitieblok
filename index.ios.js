@@ -21,6 +21,7 @@ var {
   Text,
   View,
 ListView,
+    RecyclerViewBackedScrollView,
 } = React;
 
 
@@ -42,39 +43,154 @@ var NotitieBlok  = React.createClass({
     render: function() {
                                      //debugger;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+            
+            <ListView
+            dataSource = {this.state.dataSource}
+            renderRow = {this.renderRecord}
+            renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
+            renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
+            style = {styles.ListView}
+            ></ListView>
+            
+//      <View style={styles.container}>
+//        <Text style={styles.welcome}>
+//          Welcome to React Native!
+//        </Text>
+//      </View>
     );
-  }
+  },
+                                     
+                                     renderRecord: function(record){
+                                     return(
+                                     <View>
+                                            
+                                            <Text style = {styles.leftColor}>
+                                            </Text>
+                                            <Text style = {styles.descriptionText}>{record.description}
+                                            </Text>
+                                            
+                                            
+                                            <Text style = {styles.datetimeText}>{record.datetime}
+                                            </Text>
+                                            
+                                    
+                                     
+                                            <View style = {styles.price}>
+                                            <Text style = {styles.text}>{record.price.currency}{record.price.value}
+                                           
+                                            
+                                     </Text>
+                                            </View>
+                                     </View>
+                                            );
+                                     }
                                      });
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+ flexDirection: 'row',
+                                 
+//    justifyContent: 'center',
+//    alignItems: 'center',
+    //backgroundColor: 'black',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+                                 row: {
+                                 //flexDirection: 'row',
+                                // justifyContent: 'center',
+                                 padding: 10,
+                                 height:70,
+                                 //backgroundColor: '#F6F6F6',
+                                 },
+                                 
+                                 descriptionText : {
+                                 color: 'black',
+                                 //backgroundColor:'red',
+                                 margin:20,
+                                 marginTop:-50,
+                                 width:120,
+                                 height:20,
+                                 
+                                 
+                                 fontSize: 15,
+                                 fontWeight: 'bold',
+                                 
+                                 },
+                                 
+                                 descriptionBlock:{
+                                 
+                                 width:100,
+                                 height:50,
+                                 
+                                 
+                                
+                                
+                                 
+                                 },
+                                 
+                                 
+                                 datetimeText : {
+                                 color: 'black',
+                                 
+                                 fontSize: 10,
+                                 margin:20,
+                                 marginTop:-20,
+                                 },
+                                 
+                                 separator: {
+                                 height: 1,
+                                 backgroundColor: '#CCCCCC',
+                                 
+                                 },
+                                 
+                                 leftColor : {
+                                 backgroundColor:'orange',
+                                 width:15,
+                                 height: 70,
+                                 position: 'relative',
+                                 
+                                 
+                                 
+                                
+                                 
+                                 },
+                                 
+                                 price: {
+                                 color: 'black',
+                                 
+                                 
+                                 
+                                 width:75,
+                                 height:70,
+                                 backgroundColor: '#CCCCCC',
+                                 marginLeft:260,
+                                 marginTop:-71,
+                                 
+                                 
+                                 
+                                 },
+                                 
+                                
+                                 text: {
+                                 fontSize: 17,
+                                 fontWeight: 'bold',
+                                 //backgroundColor:'red',
+                                 //marginLeft:12,
+                                 marginHorizontal:5,
+                                 marginVertical:25,
+                                 
+                                 
+                                 },
+                                 
+                                 
+                                 ListView: {
+                                 padding: 20,
+                                 
+                                 backgroundColor: '#F6F6F6',
+
+                                 },
+
+   
 });
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
