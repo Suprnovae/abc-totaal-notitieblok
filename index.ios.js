@@ -4,16 +4,43 @@
  * @flow
  */
 
-import React, {
+'use strict';
+
+var React = require('react-native');
+
+var _     = require('lodash');
+
+var Records = require('./data/records.js');
+
+//debugger;
+
+var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
+  View,
+ListView,
+} = React;
 
-class NotitieBlok extends Component {
-  render() {
+
+//state, props
+var NotitieBlok  = React.createClass({
+                                     
+                                     getInitialState: function(){
+                                     return {
+                                     dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
+                                     }
+                                     },
+                                     
+    
+                                     componentDidMount: function(){
+                                     this.setState({
+                                                   dataSource: this.state.dataSource.cloneWithRows(Records.records),
+                                     });
+                                                                  },
+    render: function() {
+                                     //debugger;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -29,7 +56,7 @@ class NotitieBlok extends Component {
       </View>
     );
   }
-}
+                                     });
 
 const styles = StyleSheet.create({
   container: {
