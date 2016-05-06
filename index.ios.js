@@ -16,15 +16,15 @@ import React, {
 } from 'react-native';
 
 import DemoSimpleList from './components/DemoSimpleList';
-
 import styles from './styles/Initial';
+import MockData from './data/records';
 
 class Main extends Component {
 	constructor(props) {
 		super(props)
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-			dataSource: ds.cloneWithRows(['morgan', 'barclays', 'rabo', 'roth', 'rocker', 'london', 'new york', 'carnegie', 'lehman', 'v/d bilt', 'chase', 'hartman', 'stilman'])
+			dataSource: ds.cloneWithRows(MockData.records)
 		}
 	}
   render() {

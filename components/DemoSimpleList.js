@@ -5,16 +5,24 @@ import React, {
   View,
 } from 'react-native';
 
+import RecordListItem from './RecordListItem';
 import styles from '../styles/Initial';
 
-export default class DemoCardList extends Component {
+export default class DemoSimpleList extends Component {
+
   render() {
     return(
       <ListView
         dataSource={this.props.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
-        renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
-        />
+        renderRow = {this.renderRecord}
+        style = {styles.ListView}
+      ></ListView>
+    );
+  }
+
+  renderRecord(dataSource) {
+    return(
+      <RecordListItem record={dataSource} />
     );
   }
 }
