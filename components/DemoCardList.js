@@ -1,7 +1,7 @@
 import React, {
   Component,
   ListView,
-} from 'react-native'
+} from 'react-native';
 
 import ListElementView from './ListElementView';
 
@@ -11,6 +11,6 @@ export default class DemoCardList extends Component {
       <ListView
         dataSource={this.props.dataSource}
         renderRow={(rowData) => <ListElementView value={rowData} />} />
-    )
+    );
   }
 }

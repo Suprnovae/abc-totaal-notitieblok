@@ -1,6 +1,6 @@
 import React, {
   StyleSheet,
-} from 'react-native'
+} from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -25,9 +25,9 @@ export default StyleSheet.create({
     height: 1,
     backgroundColor: '#CCCCCC',
   },
-	toolbar: {
-		height: 56,
-		backgroundColor: 'white',
-		flex: 0,
-	},
+  toolbar: {
+    height: 56,
+    backgroundColor: 'white',
+    flex: 0,
+  },
 });

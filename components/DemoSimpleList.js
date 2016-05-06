@@ -3,7 +3,7 @@ import React, {
   ListView,
   Text,
   View,
-} from 'react-native'
+} from 'react-native';
 
 import styles from '../styles/Initial';
 
@@ -15,6 +15,6 @@ export default class DemoCardList extends Component {
         renderRow={(rowData) => <Text>{rowData}</Text>}
         renderSeparator={(sectionID, rowID) => <View key={`${sectionID}-${rowID}`} style={styles.separator} />}
         />
-    )
+    );
   }
 }

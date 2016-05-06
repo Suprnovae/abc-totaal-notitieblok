@@ -4,16 +4,16 @@ import React, {
   Image,
   ListView,
   Text,
-} from 'react-native'
+} from 'react-native';
 
 import { Card, Button } from 'react-native-material-design';
 
 const styles = require('../styles/Initial');
 
 export default class ListElementView extends Component {
-	render() {
-		return (
-      <Card>
+  render() {
+    return (
+        <Card>
         <Card.Body>
           <Text style={styles.instructions}>{this.props.value}</Text>
         </Card.Body>
@@ -21,6 +21,6 @@ export default class ListElementView extends Component {
           <Button value="Meer" text="Meer" />
         </Card.Actions>
       </Card>
-		)
-	}
+    );
+  }
 }
