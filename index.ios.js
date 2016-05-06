@@ -26,7 +26,8 @@ ListView,
 
 
 //state, props
-var NotitieBlok  = React.createClass({
+var export default class BasicRecordListElement extends Component({
+//var NotitieBlok  = React.createClass({
                                      
                                      getInitialState: function(){
                                      return {
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
                                 // justifyContent: 'center',
                                  padding: 10,
                                  height:70,
-                                 //backgroundColor: '#F6F6F6',
+                                 backgroundColor: 'black',
                                  },
                                  
                                  descriptionText : {
@@ -148,34 +149,26 @@ const styles = StyleSheet.create({
                                  width:15,
                                  height: 70,
                                  position: 'relative',
-                                 
-                                 
-                                 
-                                
-                                 
+
                                  },
                                  
                                  price: {
-                                 color: 'black',
-                                 
-                                 
-                                 
+
                                  width:75,
                                  height:70,
                                  backgroundColor: '#CCCCCC',
-                                 marginLeft:260,
+                                 //marginLeft:250,
                                  marginTop:-71,
-                                 
-                                 
-                                 
+                                 marginRight: 30,
+                                 right:-260,
+                                
+
                                  },
                                  
                                 
                                  text: {
                                  fontSize: 17,
                                  fontWeight: 'bold',
-                                 //backgroundColor:'red',
-                                 //marginLeft:12,
                                  marginHorizontal:5,
                                  marginVertical:25,
                                  
