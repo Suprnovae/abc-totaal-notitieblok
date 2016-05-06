@@ -1,4 +1,4 @@
-package com.notitieblok;
+package com.suprnovae.abctotaal.notitieblok;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
@@ -6,6 +6,9 @@ import com.facebook.react.shell.MainReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
+
+import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -34,7 +37,9 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new ExtraDimensionsPackage(this),
+            new VectorIconsPackage()
         );
     }
 }

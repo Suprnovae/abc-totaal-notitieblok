@@ -17,6 +17,7 @@ var Records = require('./data/records.js');
 var {
   AppRegistry,
   Component,
+  NavigatorIOS,
   StyleSheet,
   Text,
   View,
@@ -185,5 +186,24 @@ const styles = StyleSheet.create({
 
    
 });
+
+class NotitieBlok extends Component {
+  render() {
+    return (
+      <NavigatorIOS
+				style={styles.container}
+        initialRoute={{
+          component: Main,
+          title: 'Boekingen',
+					leftButtonIcon: require('image!NavBarButtonIcon'),
+					rightButtonIcon: require('image!NavBarButtonPlus'),
+					onLeftButtonPress: () => {console.log('pressed')},
+        }}
+        itemWrapperStyle={styles.itemWrapper}
+      />
+    );
+  }
+}
+
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
