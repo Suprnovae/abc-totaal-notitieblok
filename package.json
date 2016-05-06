@@ -7,6 +7,7 @@
     "fix-style": "eslint --fix -c .eslintrc.json **/*.js"
   },
   "dependencies": {
+    "lodash": "^4.11.2",
     "react": "^0.14.8",
     "react-native": "^0.24.1",
     "react-native-action-button": "^1.1.4",
