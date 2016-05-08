@@ -3,6 +3,9 @@ rootProject.name = 'NotitieBlok'
 include ':app'
 include ':ExtraDimensions', ':app'
 include ':react-native-vector-icons'
+include ':react-native-camera'
+
 
 project(':ExtraDimensions').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-extra-dimensions-android/android')
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+project(':react-native-camera').projectDir = new File(rootProject.projectDir,   '../node_modules/react-native-camera/android')
