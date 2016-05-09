@@ -12,11 +12,11 @@ export default class RecordListItem extends Component {
     super(props);
     this.state = {
       record: this.props.record
-    }
+    };
   }
 
   render() {
-    const record = this.state.record
+    const record = this.state.record;
 
     return(
       <View>
