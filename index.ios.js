@@ -30,15 +30,6 @@ class Main extends Component {
 		this.state = {
 			dataSource: ds.cloneWithRows(['morgan', 'barclays', 'rabo', 'roth', 'rocker', 'london', 'new york', 'carnegie', 'lehman', 'v/d bilt', 'chase', 'hartman', 'stilman'])
 		}
-		console.log(props)
-		/*
-		props.navigator.push({
-          component: Add,
-          title: 'Nieuwe Boeking',
-					leftButtonTitle: 'Overzicht',
-					onLeftButtonPress: () => {props.navigator.pop()}
-    })
-*/
 	}
   render() {
     return (
