@@ -30,17 +30,23 @@ export default StyleSheet.create({
   },
   descriptionText : {
     fontSize: 15,
+    //alignSelf: 'stretch',
+    //backgroundColor: 'red',
     fontWeight: 'bold',
     margin:20,
     marginTop:-50,
-    width:120,
     height:20,
+
   },
-  leftColor : {
+  leftColor: {
     backgroundColor:'orange',
     width:10,
     height: 70,
     position: 'relative',
+  },
+  recordData: {
+    flex: 1,
+    marginRight: 150,
   },
   datetimeText:{
     fontSize:10,
@@ -49,21 +55,26 @@ export default StyleSheet.create({
   },
 
   price: {
-    width:75,
+    width:150,
     height:70,
     backgroundColor: '#CCCCCC',
-    marginLeft:260,
+    alignSelf: 'flex-end',
     marginTop:-71,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   ListView: {
     padding:20,
     backgroundColor: '#F6F6F6',
     margin:-20
   },
-  text: {
+  priceText: {
+    flex: 1,
     fontSize: 17,
     fontWeight: 'bold',
     marginHorizontal:10,
-    marginVertical:25,
+    textAlign: 'right',
   },
 });

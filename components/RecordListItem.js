@@ -21,10 +21,12 @@ export default class RecordListItem extends Component {
     return(
       <View>
         <Text style={styles.leftColor}> </Text>
-        <Text style={styles.descriptionText}>{record.description}</Text>
-        <Text style={styles.datetimeText}>{record.datetime}</Text>
+        <View style={styles.recordData}>
+          <Text numberOfLines={1} style={styles.descriptionText}>{record.description}</Text>
+          <Text style={styles.datetimeText}>{record.datetime}</Text>
+        </View>
         <View style = {styles.price}>
-          <Text style = {styles.text}>{record.price.currency} {record.price.value}</Text>
+          <Text style={styles.priceText}>{record.price.currency} {record.price.value}</Text>
         </View>
       </View>
     );
