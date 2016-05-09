@@ -17,11 +17,7 @@ import React, {
 
 import DemoSimpleList from './components/DemoSimpleList';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+import styles from './styles/Initial';
 
 class Main extends Component {
 	constructor(props) {
