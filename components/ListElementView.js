@@ -13,7 +13,7 @@ const styles = require('../styles/Initial');
 export default class ListElementView extends Component {
   render() {
     return (
-        <Card>
+      <Card>
         <Card.Body>
           <Text style={styles.instructions}>{this.props.value}</Text>
         </Card.Body>

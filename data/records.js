@@ -1,0 +1,111 @@
+module.exports = {
+  records: [{
+    "price": {
+      "currency": "USD",
+      "value": -4.0
+    },
+    "description": "1x seat for e-mail service",
+    "datetime": "2016-05-03T15:29:51-04:00",
+    "attachment": null,
+    "category": "internet services"
+  }, {
+    "price": {
+      "currency": "USD",
+      "value": -1299.99
+    },
+    "description": "laptop",
+    "datetime": "2016-05-03T18:29:51-04:00",
+    "attachment": null,
+    "category": "tools"
+  }, {
+    "price": {
+      "currency": "USD",
+      "value": 3000.00
+    },
+    "description": "consultancy services to Acme Corp",
+    "datetime": "2016-05-04T08:01:22-04:00",
+    "attachment": null,
+    "category": "consultancy"
+  }, {
+    "price": {
+      "currency": "USD",
+      "value": -624.00
+    },
+    "description": "airfare from NYC to Berlin",
+    "datetime": "2016-05-05T09:15:32-04:00",
+    "attachment": null,
+    "category": "travel"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": -200.00
+    },
+    "description": "meeting room for workshop",
+    "datetime": "2016-05-06T08:32:32+01:00",
+    "attachment": null,
+    "category": "office rent"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": -89.00
+    },
+    "description": "printing of worksheets",
+    "datetime": "2016-05-06T08:45:27+01:00",
+    "attachment": null,
+    "category": "office supplies"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": -57.00
+    },
+    "description": "travel to Amsterdam",
+    "datetime": "2016-05-06T13:35:12+01:00",
+    "attachment": null,
+    "category": "travel"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": 8000.00
+    },
+    "description": "workshop fees",
+    "datetime": "2016-05-06T20:16:09+01:00",
+    "attachment": null,
+    "category": "consultancy"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": -5000.00
+    },
+    "description": "invest in Experimenteel Bedrijfje BV",
+    "datetime": "2016-05-06T23:57:47+01:00",
+    "attachment": null,
+    "category": "investments"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": 500.00
+    },
+    "description": "consultancy to Example Company Inc",
+    "datetime": "2016-05-07T09:02:34+01:00",
+    "attachment": null,
+    "category": "investments"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": -20.00
+    },
+    "description": "bank fees",
+    "datetime": "2016-05-07T12:32:13+01:00",
+    "attachment": null,
+    "category": "financial services"
+  }, {
+    "price": {
+      "currency": "EUR",
+      "value": 1251255.70
+    },
+    "description": "sold shares of Startup Ltd to Big Company Inc",
+    "datetime": "2016-05-13T23:11:45+01:00",
+    "attachment": null,
+    "category": "exit"
+  }]
+};
