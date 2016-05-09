@@ -1,22 +1,24 @@
 import React, {
   Component,
   ListView,
+  ScrollView,
   Text,
-  View,
 } from 'react-native';
 
 import RecordListItem from './RecordListItem';
 import styles from '../styles/Initial';
 
-export default class DemoSimpleList extends Component {
+export default class RecordListViewIOS extends Component {
 
   render() {
     return(
-      <ListView
-        dataSource={this.props.dataSource}
-        renderRow = {this.renderRecord}
-        style = {styles.ListView}
-      ></ListView>
+      <ScrollView style={styles.list}>
+        <ListView
+          dataSource={this.props.dataSource}
+          renderRow = {this.renderRecord}
+          style = {styles.ListView}
+        ></ListView>
+      </ScrollView>
     );
   }
 
