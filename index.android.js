@@ -15,6 +15,7 @@ import React, {
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RecordListViewAndroid from './components/RecordListViewAndroid';
+import CameraViewAndroid from './components/CameraViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -31,7 +32,6 @@ class NotitieBlok extends Component {
 			dataSource: ds.cloneWithRows(MockData.records)
 		}
   }
-
   render() {
     return (
       <View style={{flex: 1}}>
@@ -48,10 +48,24 @@ class NotitieBlok extends Component {
           <ActionButton.Item buttonColor="#FFC107" title="New">
             <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}} />
           </ActionButton.Item>
+          <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
+            <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}} />
+          </ActionButton.Item>
         </ActionButton>
       </View>
     );
   }
+
+  _openCamera(){
+    //ToastAndroid.show('This is a toast with long duration', ToastAndroid.LONG);
+    console.log(this);
+    // this.refs.navigator.push({
+    //   title:'camera',
+    //   component:CameraViewAndroid,
+    // });
+    //return ( <CameraViewAndroid></CameraViewAndroid>);
+  }
+
 }
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);

@@ -13,6 +13,7 @@ import React, {
   ListView,
 } from 'react-native';
 
+import CameraViewIOS from './components/CameraViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import styles from './styles/Initial';
 import MockData from './data/records';
@@ -34,9 +35,21 @@ class Main extends Component {
 }
 
 class NotitieBlok extends Component {
+  rightButtonPress() {
+      this.refs.nav.navigator.push({
+          title: "Camera",
+          component: CameraViewIOS,
+          rightButtonTitle: 'Cancel',
+          onRightButtonPress: () => {
+              this.refs.nav.navigator.pop();
+          }
+      });
+  }
+
   render() {
     return (
       <NavigatorIOS
+        ref="nav"
         style={styles.container}
         initialRoute={{
           component: Main,
@@ -44,6 +57,7 @@ class NotitieBlok extends Component {
           leftButtonIcon: require('image!NavBarButtonIcon'),
           rightButtonIcon: require('image!NavBarButtonPlus'),
           onLeftButtonPress: () => {console.log('pressed')},
+          onRightButtonPress:this.rightButtonPress.bind(this)
         }}
         itemWrapperStyle={styles.itemWrapper}
       />

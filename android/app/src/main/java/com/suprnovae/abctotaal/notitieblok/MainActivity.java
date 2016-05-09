@@ -9,6 +9,7 @@ import java.util.List;
 
 import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.lwansbrough.RCTCamera.*;
 
 public class MainActivity extends ReactActivity {
 
@@ -39,7 +40,8 @@ public class MainActivity extends ReactActivity {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new ExtraDimensionsPackage(this),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RCTCameraPackage()
         );
     }
 }
