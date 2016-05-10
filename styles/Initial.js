@@ -22,7 +22,7 @@ export default StyleSheet.create({
   },
   toolbar: {
     height: 56,
-    backgroundColor: 'white',
+    backgroundColor: '#2196F3',
     flex: 0,
   },
   list:{

@@ -36,10 +36,11 @@ class NotitieBlok extends Component {
     return (
       <View style={{flex: 1}}>
         <ToolbarAndroid
+          title='ABC Notitie Blok'
+          titleColor ='white'
           style={styles.toolbar}
           icon={require('image!toolbar_icon')}
           navIcon={require('image!toolbar_icon')}
-          title='ABC Notitie Blok'
           actions={[]} />
         <View style={styles.container}>
           <RecordListViewAndroid dataSource={this.state.dataSource} />
