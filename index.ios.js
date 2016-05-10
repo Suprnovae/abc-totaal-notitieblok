@@ -59,7 +59,10 @@ class NotitieBlok extends Component {
           onLeftButtonPress: () => {console.log('pressed')},
           onRightButtonPress:this.rightButtonPress.bind(this)
         }}
-        itemWrapperStyle={styles.itemWrapper}
+        itemWrapperStyle={styles.ItemWrapper}
+        tintColor="#FFF"
+        barTintColor = '#2196F3'
+        titleTextColor = "#FFF"
       />
     );
   }
