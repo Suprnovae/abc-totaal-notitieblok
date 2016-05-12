@@ -9,6 +9,7 @@ import React, {
   ToolbarAndroid,
   ListView,
   ScrollView,
+  Navigator,
   View,
 } from 'react-native';
 
@@ -26,44 +27,62 @@ const actions = [
 
 class NotitieBlok extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-		this.state = {
-			dataSource: ds.cloneWithRows(MockData.records)
-		}
+    this.state = {
+      dataSource: ds.cloneWithRows(MockData.records)
+    };
   }
+
   render() {
     return (
-      <View style={{flex: 1}}>
-        <ToolbarAndroid
-          style={styles.toolbar}
-          icon={require('image!toolbar_icon')}
-          navIcon={require('image!toolbar_icon')}
-          title='ABC Notitie Blok'
-          actions={[]} />
-        <View style={styles.container}>
-          <RecordListViewAndroid dataSource={this.state.dataSource} />
-        </View>
-        <ActionButton buttonColor="#42A5F5">
-          <ActionButton.Item buttonColor="#FFC107" title="New">
-            <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}} />
-          </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
-            <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}} />
-          </ActionButton.Item>
-        </ActionButton>
-      </View>
+      <Navigator
+        initialRoute={{name: 'ABC Notitie Blok', id:'home' ,index: 0}}
+        renderScene={this.renderScene.bind(this)}
+        configureScene={route => (
+          route.sceneConfig || Navigator.SceneConfigs.FloatFromBottom
+        )}
+        ref="navigator"/>
     );
   }
 
-  _openCamera(){
+  renderScene(route, navigator) {
+    console.log('renderScene with route.id='+route.id);
+    switch (route.id) {
+    case 'home':
+      return(
+        <View style={{flex: 1}}>
+          <ToolbarAndroid
+            style={styles.toolbar}
+            icon={require('image!toolbar_icon')}
+            navIcon={require('image!toolbar_icon')}
+            title='ABC Notitie Blok'
+            actions={[]}/>
+          <View style={styles.container}>
+            <RecordListViewAndroid dataSource={this.state.dataSource}/>
+          </View>
+          <ActionButton buttonColor="#42A5F5">
+            <ActionButton.Item buttonColor="#FFC107" title="New">
+              <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
+            </ActionButton.Item>
+            <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
+              <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
+            </ActionButton.Item>
+          </ActionButton>
+        </View>
+      );
+    case 'camera':
+      return (<CameraViewAndroid navigator={navigator} route={route} {...this.props} ></CameraViewAndroid>);
+    }
+  }
+
+  _openCamera() {
     //ToastAndroid.show('This is a toast with long duration', ToastAndroid.LONG);
-    console.log(this);
-    // this.refs.navigator.push({
-    //   title:'camera',
-    //   component:CameraViewAndroid,
-    // });
-    //return ( <CameraViewAndroid></CameraViewAndroid>);
+    console.log("opening camera view");
+    this.refs.navigator.push({
+      id: 'camera',
+      title: 'camera',
+    });
   }
 
 }
