@@ -5,12 +5,14 @@
 
 import React, {
   AppRegistry,
+  BackAndroid,
   Component,
   ToolbarAndroid,
   ListView,
   ScrollView,
   Navigator,
   View,
+  Text,
 } from 'react-native';
 
 import ActionButton from 'react-native-action-button';
@@ -40,14 +42,22 @@ class NotitieBlok extends Component {
         initialRoute={{name: 'ABC Notitie Blok', id:'home' ,index: 0}}
         renderScene={this.renderScene.bind(this)}
         configureScene={route => (
-          route.sceneConfig || Navigator.SceneConfigs.FloatFromBottom
+          route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump
         )}
         ref="navigator"/>
     );
   }
 
   renderScene(route, navigator) {
-    console.log('renderScene with route.id='+route.id);
+    BackAndroid.addEventListener('hardwareBackPress', function() {
+      if(navigator && navigator.getCurrentRoutes().length > 1) {
+        console.log(navigator.getCurrentRoutes());
+        navigator.pop();
+        return true;
+      }
+      return false;
+    });
+
     switch (route.id) {
     case 'home':
       return(
@@ -71,20 +81,29 @@ class NotitieBlok extends Component {
           </ActionButton>
         </View>
       );
+    case 'test':
+      return (
+        <View>
+          <ToolbarAndroid
+            style={styles.toolbar}
+            navIcon={require('image!toolbar_icon')}
+            title='Capture Document'
+            actions={[]} />
+          <View style={styles.container}><Text>Hello</Text></View>
+        </View>
+      );
     case 'camera':
       return (<CameraViewAndroid navigator={navigator} route={route} {...this.props} ></CameraViewAndroid>);
     }
   }
 
   _openCamera() {
-    //ToastAndroid.show('This is a toast with long duration', ToastAndroid.LONG);
     console.log("opening camera view");
     this.refs.navigator.push({
       id: 'camera',
       title: 'camera',
     });
   }
-
 }
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
