@@ -13,6 +13,7 @@ import React, {
   Navigator,
   View,
   Text,
+  TextInput,
 } from 'react-native';
 
 import ActionButton from 'react-native-action-button';
@@ -72,7 +73,7 @@ class NotitieBlok extends Component {
             <RecordListViewAndroid dataSource={this.state.dataSource}/>
           </View>
           <ActionButton buttonColor="#42A5F5">
-            <ActionButton.Item buttonColor="#FFC107" title="New">
+            <ActionButton.Item buttonColor="#FFC107" title="New" onPress={this._openForm.bind(this)}>
               <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
             </ActionButton.Item>
             <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
@@ -81,15 +82,22 @@ class NotitieBlok extends Component {
           </ActionButton>
         </View>
       );
-    case 'test':
+    case 'new':
       return (
         <View>
           <ToolbarAndroid
             style={styles.toolbar}
             navIcon={require('image!toolbar_icon')}
-            title='Capture Document'
+            title='New Record'
             actions={[]} />
-          <View style={styles.container}><Text>Hello</Text></View>
+          <View style={styles.container}>
+            <Text>What?</Text>
+            <TextInput
+              keyboardType='numeric'
+              defaultValue='0' />
+            <TextInput
+              placeholder='Enter description of entry...' />
+          </View>
         </View>
       );
     case 'camera':
@@ -102,6 +110,13 @@ class NotitieBlok extends Component {
     this.refs.navigator.push({
       id: 'camera',
       title: 'camera',
+    });
+  }
+
+  _openForm() {
+    this.refs.navigator.push({
+      id: 'new',
+      title: 'New Record',
     });
   }
 }
