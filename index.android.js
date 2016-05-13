@@ -7,7 +7,6 @@ import React, {
   AppRegistry,
   BackAndroid,
   Component,
-  ToolbarAndroid,
   ListView,
   ScrollView,
   Navigator,
@@ -19,6 +18,7 @@ import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RecordListViewAndroid from './components/RecordListViewAndroid';
 import CameraViewAndroid from './components/CameraViewAndroid';
+import CustomToolbarAndroid from './components/CustomToolbarAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -32,7 +32,10 @@ class NotitieBlok extends Component {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(MockData.records)
+      dataSource: ds.cloneWithRows(MockData.records),
+      colorProps: {
+        titleColor: 'red'
+      }
     };
   }
 
@@ -62,10 +65,7 @@ class NotitieBlok extends Component {
     case 'home':
       return(
         <View style={{flex: 1}}>
-          <ToolbarAndroid
-            style={styles.toolbar}
-            icon={require('image!toolbar_icon')}
-            navIcon={require('image!toolbar_icon')}
+          <CustomToolbarAndroid
             title='ABC Notitie Blok'
             actions={[]}/>
           <View style={styles.container}>
@@ -84,8 +84,7 @@ class NotitieBlok extends Component {
     case 'test':
       return (
         <View>
-          <ToolbarAndroid
-            style={styles.toolbar}
+          <CustomToolbarAndroid
             navIcon={require('image!toolbar_icon')}
             title='Capture Document'
             actions={[]} />
