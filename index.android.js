@@ -16,10 +16,9 @@ import React, {
   TextInput,
 } from 'react-native';
 
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import RecordListViewAndroid from './components/RecordListViewAndroid';
 import CameraViewAndroid from './components/CameraViewAndroid';
+import HomeViewAndroid from './components/HomeViewAndroid';
+import NewViewAndroid from './components/NewViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -62,62 +61,22 @@ class NotitieBlok extends Component {
     switch (route.id) {
     case 'home':
       return(
-        <View style={{flex: 1}}>
-          <ToolbarAndroid
-            style={styles.toolbar}
-            icon={require('image!toolbar_icon')}
-            navIcon={require('image!toolbar_icon')}
-            title='ABC Notitie Blok'
-            actions={[]}/>
-          <View style={styles.container}>
-            <RecordListViewAndroid dataSource={this.state.dataSource}/>
-          </View>
-          <ActionButton buttonColor="#42A5F5">
-            <ActionButton.Item buttonColor="#FFC107" title="New" onPress={this._openForm.bind(this)}>
-              <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
-              <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
-            </ActionButton.Item>
-          </ActionButton>
-        </View>
+        <HomeViewAndroid
+          navigator={navigator}
+          records={this.state.dataSource} />
       );
     case 'new':
       return (
-        <View>
-          <ToolbarAndroid
-            style={styles.toolbar}
-            navIcon={require('image!toolbar_icon')}
-            title='New Record'
-            actions={[]} />
-          <View style={styles.container}>
-            <Text>What?</Text>
-            <TextInput
-              keyboardType='numeric'
-              defaultValue='0' />
-            <TextInput
-              placeholder='Enter description of entry...' />
-          </View>
-        </View>
+        <NewViewAndroid
+          navigator={navigator} />
       );
     case 'camera':
-      return (<CameraViewAndroid navigator={navigator} route={route} {...this.props} ></CameraViewAndroid>);
+      return (
+        <CameraViewAndroid
+          navigator={navigator}
+          route={route} {...this.props} />
+      );
     }
-  }
-
-  _openCamera() {
-    console.log("opening camera view");
-    this.refs.navigator.push({
-      id: 'camera',
-      title: 'camera',
-    });
-  }
-
-  _openForm() {
-    this.refs.navigator.push({
-      id: 'new',
-      title: 'New Record',
-    });
   }
 }
 
