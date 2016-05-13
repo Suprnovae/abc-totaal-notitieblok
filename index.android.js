@@ -12,13 +12,12 @@ import React, {
   Navigator,
   View,
   Text,
+  TextInput,
 } from 'react-native';
 
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import RecordListViewAndroid from './components/RecordListViewAndroid';
 import CameraViewAndroid from './components/CameraViewAndroid';
-import CustomToolbarAndroid from './components/CustomToolbarAndroid';
+import HomeViewAndroid from './components/HomeViewAndroid';
+import RecordFormViewAndroid from './components/RecordFormViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -64,44 +63,22 @@ class NotitieBlok extends Component {
     switch (route.id) {
     case 'home':
       return(
-        <View style={{flex: 1}}>
-          <CustomToolbarAndroid
-            title='ABC Notitie Blok'
-            actions={[]}/>
-          <View style={styles.container}>
-            <RecordListViewAndroid dataSource={this.state.dataSource}/>
-          </View>
-          <ActionButton buttonColor="#42A5F5">
-            <ActionButton.Item buttonColor="#FFC107" title="New">
-              <Icon name="rocket" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
-              <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
-            </ActionButton.Item>
-          </ActionButton>
-        </View>
+        <HomeViewAndroid
+          navigator={navigator}
+          records={this.state.dataSource} />
       );
-    case 'test':
+    case 'new':
       return (
-        <View>
-          <CustomToolbarAndroid
-            navIcon={require('image!toolbar_icon')}
-            title='Capture Document'
-            actions={[]} />
-          <View style={styles.container}><Text>Hello</Text></View>
-        </View>
+        <RecordFormViewAndroid
+          navigator={navigator} />
       );
     case 'camera':
-      return (<CameraViewAndroid navigator={navigator} route={route} {...this.props} ></CameraViewAndroid>);
+      return (
+        <CameraViewAndroid
+          navigator={navigator}
+          route={route} {...this.props} />
+      );
     }
-  }
-
-  _openCamera() {
-    console.log("opening camera view");
-    this.refs.navigator.push({
-      id: 'camera',
-      title: 'camera',
-    });
   }
 }
 

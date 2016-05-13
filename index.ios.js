@@ -14,6 +14,7 @@ import React, {
 } from 'react-native';
 
 import CameraViewIOS from './components/CameraViewIOS';
+import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import styles from './styles/Initial';
 import MockData from './data/records';
@@ -37,8 +38,8 @@ class Main extends Component {
 class NotitieBlok extends Component {
   rightButtonPress() {
       this.refs.nav.navigator.push({
-          title: "Camera",
-          component: CameraViewIOS,
+          title: "New Record", // "Camera",
+          component: RecordFormViewIOS, //CameraViewIOS,
           rightButtonTitle: 'Cancel',
           onRightButtonPress: () => {
               this.refs.nav.navigator.pop();
