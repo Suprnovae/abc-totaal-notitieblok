@@ -8,7 +8,7 @@ import React, {
 
 import styles from '../styles/Initial';
 
-export default class NewViewAndroid extends Component {
+export default class RecordFormViewAndroid extends Component {
   constructor(props) {
     super(props);
     this.state = {

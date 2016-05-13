@@ -18,7 +18,7 @@ import React, {
 
 import CameraViewAndroid from './components/CameraViewAndroid';
 import HomeViewAndroid from './components/HomeViewAndroid';
-import NewViewAndroid from './components/NewViewAndroid';
+import RecordFormViewAndroid from './components/RecordFormViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -67,7 +67,7 @@ class NotitieBlok extends Component {
       );
     case 'new':
       return (
-        <NewViewAndroid
+        <RecordFormViewAndroid
           navigator={navigator} />
       );
     case 'camera':
