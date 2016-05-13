@@ -8,23 +8,20 @@ import React, {
 import RecordListItem from './RecordListItem';
 import styles from '../styles/Initial';
 
-export default class RecordListViewIOS extends Component {
-
-  render() {
-    return(
-      <ScrollView style={styles.list}>
-        <ListView
-          dataSource={this.props.dataSource}
-          renderRow = {this.renderRecord}
-          style = {styles.ListView}
-        ></ListView>
-      </ScrollView>
+export default (props) => {
+  const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  const renderRecord = (r) => {
+    return (
+      <RecordListItem record={r} />
     );
-  }
-
-  renderRecord(dataSource) {
-    return(
-      <RecordListItem record={dataSource} />
-    );
-  }
-}
+  };
+  return(
+    <ScrollView style={styles.list}>
+      <ListView
+        dataSource={ds.cloneWithRows(props.records)}
+        renderRow = {renderRecord}
+        style = {styles.ListView}
+      ></ListView>
+    </ScrollView>
+  );
+};
