@@ -16,27 +16,31 @@ import React, {
 import CameraViewIOS from './components/CameraViewIOS';
 import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
+import RecordListIOS from './containers/RecordListIOS';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { addRecord } from './actions';
+import basicApp from './reducers';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
-class Main extends Component {
-  constructor(props) {
-    super(props)
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows(MockData.records)
-    }
-  }
+const initialState = {
+  token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
+  records: MockData.records
+};
 
-  render() {
-    return (
-      <RecordListViewIOS dataSource={this.state.dataSource} />
-    );
-  }
+const store = createStore(basicApp, initialState);
+
+const Main = (props) => {
+  return (
+    <RecordListIOS />
+  );
 }
 
 class NotitieBlok extends Component {
   rightButtonPress() {
+    store.dispatch(addRecord(100, 'XTS', 'Autogen'));
+    //store.dispatch(
       this.refs.nav.navigator.push({
           title: "New Record", // "Camera",
           component: RecordFormViewIOS, //CameraViewIOS,
@@ -49,6 +53,7 @@ class NotitieBlok extends Component {
 
   render() {
     return (
+      <Provider store={store}>
       <NavigatorIOS
         ref="nav"
         style={styles.container}
@@ -65,6 +70,7 @@ class NotitieBlok extends Component {
         barTintColor = '#2196F3'
         titleTextColor = "#FFF"
       />
+      </Provider>
     );
   }
 }
