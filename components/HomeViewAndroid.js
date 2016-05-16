@@ -14,6 +14,7 @@ import ActionButton from 'react-native-action-button';
 import CustomToolbarAndroid from './CustomToolbarAndroid';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RecordListViewAndroid from './RecordListViewAndroid';
+import DatabaseManager from './components/DatabaseManager';
 import styles from '../styles/Initial';
 
 class HomeViewAndroid extends Component {
@@ -61,6 +62,7 @@ class HomeViewAndroid extends Component {
       id: 'new',
       title: 'New Record',
     });
+    DatabaseManager.loadAndQueryDB();
   }
 };
 
