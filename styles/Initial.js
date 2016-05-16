@@ -77,4 +77,53 @@ export default StyleSheet.create({
     marginHorizontal:10,
     textAlign: 'right',
   },
+  priceblock: {
+    backgroundColor: '#4A4A4A',
+    height:150,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  newrecordcurrency:{
+    flex: 1,
+    margin:10,
+    marginTop: 48,
+  },
+  newrecordprice:{
+    flex:1,
+    justifyContent: 'center',
+    margin:20
+  },
+  newrecordblock:{
+    flex: 1,
+    flexDirection: 'row',
+    height:40,
+    backgroundColor:'white'
+  },
+  newrecordleft:{
+    flex:1,
+    backgroundColor:'white',
+    margin:10,
+  },
+  newrecordright:{
+    flex:2.5,
+    backgroundColor:'white',
+  },
+  categoryleft:{
+    flex:0.3,
+    backgroundColor:'white',
+    marginTop:10,
+    marginHorizontal:10
+  },
+  categoryright:{
+    flex:2.5,
+    backgroundColor:'white',
+    marginTop:10,
+
+  },
+  newrecordicon:{
+    flex:0.3,
+    backgroundColor:'white',
+    margin:10
+  }
+
 });
