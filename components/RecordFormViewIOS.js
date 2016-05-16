@@ -4,10 +4,14 @@ import React, {
   View,
   ScrollView,
   TextInput,
-  Text
+  Text,
+  DatePickerIOS,
+  NavigatorIOS,
+  TouchableHighlight
 } from 'react-native';
 
 import styles from '../styles/Initial';
+import CameraViewIOS from '../components/CameraViewIOS';
 
 export default class RecordFormViewIOS extends Component {
   constructor(props) {
@@ -74,8 +78,13 @@ export default class RecordFormViewIOS extends Component {
            <View style={styles.categoryleft}>
            <Text style={{height: 40,  fontSize: 16}}>icon</Text>
            </View>
+
            <View style={styles.categoryright}>
+           <TouchableHighlight onPress={this.openCamera.bind(this)}>
+           
             <Text style={{height: 40,  fontSize: 16}}>Add Scan</Text>
+          
+            </TouchableHighlight>
               </View>
               </View>
           </View>
@@ -83,5 +92,17 @@ export default class RecordFormViewIOS extends Component {
           </ScrollView>
         );
   }
+  openCamera() {
+    this.props.navigator.push({
+      title: "Camera",
+      component: CameraViewIOS,
+      rightButtonTitle: 'Cancel',
+      onClick: () => {
+        this.props.navigator.pop();
+      }
+    });
+  }
 
 }
+
+
