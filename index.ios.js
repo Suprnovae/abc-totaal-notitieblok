@@ -26,21 +26,16 @@ import MockData from './data/records';
 
 const initialState = {
   token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
-  records: MockData.records
+  records: [], //MockData.records
 };
 
 const store = createStore(basicApp, initialState);
-
-const Main = (props) => {
-  return (
-    <RecordListIOS />
-  );
-}
 
 class NotitieBlok extends Component {
   rightButtonPress() {
     store.dispatch(addRecord(100, 'XTS', 'Autogen'));
     //store.dispatch(
+    return;
       this.refs.nav.navigator.push({
           title: "New Record", // "Camera",
           component: RecordFormViewIOS, //CameraViewIOS,
@@ -58,7 +53,7 @@ class NotitieBlok extends Component {
         ref="nav"
         style={styles.container}
         initialRoute={{
-          component: Main,
+          component: RecordListIOS,
           title: 'Boekingen',
           leftButtonIcon: require('image!NavBarButtonIcon'),
           rightButtonIcon: require('image!NavBarButtonPlus'),
