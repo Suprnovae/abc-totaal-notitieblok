@@ -16,6 +16,7 @@ import React, {
 import CameraViewIOS from './components/CameraViewIOS';
 import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
+import DatabaseManager from './components/DatabaseManager';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -45,6 +46,7 @@ class NotitieBlok extends Component {
               this.refs.nav.navigator.pop();
           }
       });
+      DatabaseManager.loadAndQueryDB();
   }
 
   render() {
