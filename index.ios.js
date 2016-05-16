@@ -30,11 +30,22 @@ const initialState = {
 };
 
 const store = createStore(basicApp, initialState);
+let unsubscribe = store.subscribe(() => {
+  console.log("state changed to", store.getState());
+});
 
 class NotitieBlok extends Component {
   rightButtonPress() {
-    store.dispatch(addRecord(100, 'XTS', 'Autogen'));
-    //store.dispatch(
+    const titles = [
+      'something happening',
+      'talk to the President',
+      'something something darkside',
+      'make some music',
+      'share some love',
+      'give a stranger a hug',
+      'send mom flowers',
+    ];
+    store.dispatch(addRecord(Math.floor(Math.random()*200), 'XTS', titles[Math.floor(Math.random()*titles.length)]));
     return;
       this.refs.nav.navigator.push({
           title: "New Record", // "Camera",
@@ -47,24 +58,33 @@ class NotitieBlok extends Component {
   }
 
   render() {
+    console.log("NotitieBlok");
+    // FIX: Figure out why rowHasChanged is never fired. Somehow we append the
+    // dataset and perform the cloneWithRows inside components/RecordListViewIOS
+    // but the rowHasChanged check is never executed.
+    let ds = new ListView.DataSource({rowHasChanged: function (r1, r2) {
+      console.log("rowHasChanged", r1, r2);
+      return true; //(r1 !== r2);
+    }});
     return (
       <Provider store={store}>
-      <NavigatorIOS
-        ref="nav"
-        style={styles.container}
-        initialRoute={{
-          component: RecordListIOS,
-          title: 'Boekingen',
-          leftButtonIcon: require('image!NavBarButtonIcon'),
-          rightButtonIcon: require('image!NavBarButtonPlus'),
-          onLeftButtonPress: () => {console.log('pressed')},
-          onRightButtonPress:this.rightButtonPress.bind(this)
-        }}
-        itemWrapperStyle={styles.ItemWrapper}
-        tintColor="#FFF"
-        barTintColor = '#2196F3'
-        titleTextColor = "#FFF"
-      />
+        <NavigatorIOS
+          ref="nav"
+          style={styles.container}
+          initialRoute={{
+            component: RecordListIOS,
+            passProps: { ds: ds },
+            title: 'Boekingen',
+            leftButtonIcon: require('image!NavBarButtonIcon'),
+            rightButtonIcon: require('image!NavBarButtonPlus'),
+            onLeftButtonPress: () => {console.log('pressed')},
+            onRightButtonPress:this.rightButtonPress.bind(this)
+          }}
+          itemWrapperStyle={styles.ItemWrapper}
+          tintColor="#FFF"
+          barTintColor = '#2196F3'
+          titleTextColor = "#FFF"
+        />
       </Provider>
     );
   }

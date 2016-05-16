@@ -3,28 +3,37 @@ import React, {
   ListView,
   ScrollView,
   Text,
+  PropTypes,
 } from 'react-native';
 
 import RecordListItem from './RecordListItem';
 import styles from '../styles/Initial';
 
-export default (props) => {
-  //const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-  let ds = new ListView.DataSource({rowHasChanged: function (r1, r2) {
-    return true; //(r1 !== r2);
-  }});
+// FIX: How do we get access to a store inside the components?
+// Shouldn't use of Provider expose the store to all the components contained
+// within the Provider or does it work differently for connected components?
+const RecordListViewIOS = (props, x, y, z) => {
   const renderRecord = (rowData, sectionID, rowID, highlightRow) => {
+    console.log("record", rowData);
     return (
       <RecordListItem record={rowData} />
     );
   };
+  console.log("record list", props.records);
   return(
     <ScrollView style={styles.list}>
       <ListView
-        dataSource={ds.cloneWithRows(props.records)}
+        dataSource={props.ds.cloneWithRows(props.records)}
         renderRow = {renderRecord}
         style = {styles.ListView}
       ></ListView>
     </ScrollView>
   );
 };
+
+RecordListViewIOS.propTypes = {
+  records: PropTypes.array.isRequired,
+  ds: PropTypes.object.isRequired,
+};
+
+export default RecordListViewIOS;

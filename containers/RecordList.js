@@ -2,9 +2,8 @@
 
 import { connect } from 'react-redux';
 
-import MockData from '../data/records';
-
 const mapStateToProps = (state) => {
+  console.log("mapStateToProps");
   return {
     token: state.token,
     records: state.records

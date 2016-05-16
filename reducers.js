@@ -4,10 +4,10 @@ import { LOAD_RECORD, SAVE_RECORD } from './actions';
 function records(state = [], action) {
   switch(action.type) {
   case SAVE_RECORD:
-      return [
-        action.content,
-        ...state
-      ]
+    return [
+      action.content,
+      ...state
+    ]
   default:
     return state
   }
