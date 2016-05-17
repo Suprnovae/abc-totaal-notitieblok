@@ -376,9 +376,6 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = FB8J7Q6FL4;
-					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NotitieBlok" */;
@@ -655,6 +652,7 @@
 				INFOPLIST_FILE = NotitieBlok/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotitieBlok;
 				PRODUCT_NAME = NotitieBlok;
 				PROVISIONING_PROFILE = "";
 			};
@@ -674,6 +672,7 @@
 				INFOPLIST_FILE = NotitieBlok/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotitieBlok;
 				PRODUCT_NAME = NotitieBlok;
 				PROVISIONING_PROFILE = "";
 			};

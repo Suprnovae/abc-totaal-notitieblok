@@ -124,6 +124,18 @@ export default StyleSheet.create({
     flex:0.3,
     backgroundColor:'white',
     margin:10
+  },
+  text:{
+    color:'#C0C0C0',
+    marginTop:10,
+    height: 40,  
+    fontSize: 16
+  },
+  datepicker:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop:60,
   }
 
 });

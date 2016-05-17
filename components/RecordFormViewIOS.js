@@ -7,8 +7,11 @@ import React, {
   Text,
   DatePickerIOS,
   NavigatorIOS,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
+
+var moment = require('moment');
 
 import styles from '../styles/Initial';
 import CameraViewIOS from '../components/CameraViewIOS';
@@ -19,10 +22,21 @@ export default class RecordFormViewIOS extends Component {
     this.state = {
       dataSource: this.props.records,
       nav: this.props.navigator,
+      date: new Date(),
+      showDatePicker: false,
+      timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60
     };
   }
 
-  render() {
+  render() {     
+    var showDatePicker = this.state.showDatePicker ?
+            <DatePickerIOS
+                okText='Ok'
+                dismissText='Dismiss'
+                date={this.state.date}
+                onDateChange={this.onDateChange.bind(this)}
+                timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+                mode="datetime"/> : <View /> ;      
     return(
         <ScrollView style={styles.list}>
           <View style={[styles.container]} >
@@ -56,10 +70,12 @@ export default class RecordFormViewIOS extends Component {
            <Text style={{height: 40,  fontSize: 16,}}>On</Text>
            </View>
            <View style={styles.newrecordright}>
-            <TextInput
-              style={{height: 40}}
-              placeholder='May 13, 2016   1:00 PM' />
+            <TouchableOpacity style={{height: 40}}
+                 onPress={() => this.setState({showDatePicker: !this.state.showDatePicker})}>
+            <Text style={styles.text}>{moment(this.state.date).format('LLL')}</Text>
+            </TouchableOpacity>
               </View>
+
               </View>
 
               <View style={styles.newrecordblock}>
@@ -87,11 +103,20 @@ export default class RecordFormViewIOS extends Component {
             </TouchableHighlight>
               </View>
               </View>
+
           </View>
-          
+          <View style={styles.datepicker}>
+          {showDatePicker}
+          </View>
           </ScrollView>
+
         );
   }
+
+  onDateChange(date) {
+    this.setState({date: date});
+  };
+
   openCamera() {
     this.props.navigator.push({
       title: "Camera",
