@@ -151,7 +151,8 @@ export default class RecordFormViewAndroid extends Component {
         <ActionButton
           buttonColor="#42A5F5"
           offsetY={offset-28}
-          onPress={() => {}}
+          onPress={this._openCamera.bind(this)}
+          icon={<Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>}
         />
       </View>
     );
