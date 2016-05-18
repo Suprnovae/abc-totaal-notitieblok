@@ -77,10 +77,8 @@ export default class RecordFormViewAndroid extends Component {
     let hSoftMenuBar = ExtraDimensions.get("SOFT_MENU_BAR_HEIGHT");
     let hStatusBar = ExtraDimensions.get("STATUS_BAR_HEIGHT");
     let hWindow = ExtraDimensions.get("REAL_WINDOW_HEIGHT");
-    let hAvailable = hWindow-(hStatusBar+hSoftMenuBar+styles.toolbar.height);
-    let paddingTop = 168+56+hStatusBar; // styles.{priceblockAndroid, toolbar}.height
-    let offset = hWindow-paddingTop;
-    //console.log("padded", paddingTop, "hWindow", hWindow);
+    let paddingTop = 168+56; // styles.{priceblockAndroid, toolbar}.height
+    let offset = hWindow-(paddingTop+hStatusBar+hSoftMenuBar);
 
     return(
       <View style={{flex: 1}}>
@@ -152,7 +150,7 @@ export default class RecordFormViewAndroid extends Component {
 
         <ActionButton
           buttonColor="#42A5F5"
-          offsetY={offset-72}
+          offsetY={offset-28}
           onPress={() => {}}
         />
       </View>
