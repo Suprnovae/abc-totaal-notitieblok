@@ -13,6 +13,8 @@ import React, {
 
 var moment = require('moment');
 
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomToolbarAndroid from './CustomToolbarAndroid';
 import styles from '../styles/Initial';
 
@@ -92,10 +94,18 @@ async showDatePicker(stateKey, options) {
               keyboardType='numeric'
               underlineColorAndroid='#4A4A4A'
               defaultValue='12.00' />
+
                </View>
+                  <ActionButton buttonColor="#42A5F5">
+                <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
+              <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
+                </ActionButton.Item>
+               </ActionButton>
+
               </View>
 
             <View style={styles.newrecordblockAndroid}>
+
            <View style={styles.descriptionAndroid}>
             <TextInput
               style={{height: 40, fontSize: 16, textAlign:'left'}}
@@ -139,4 +149,12 @@ async showDatePicker(stateKey, options) {
         </ScrollView>
         );
   }
-}
+
+   _openCamera() {
+    console.log("opening camera view");
+    this.state.nav.push({
+      id: 'camera',
+      title: 'camera',
+    });
+  }
+  }
