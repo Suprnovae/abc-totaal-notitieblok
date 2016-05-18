@@ -13,8 +13,10 @@ import React, {
 
 var moment = require('moment');
 
+
 import styles from '../styles/Initial';
 import CameraViewIOS from '../components/CameraViewIOS';
+import Collapsible from 'react-native-collapsible';
 
 export default class RecordFormViewIOS extends Component {
   constructor(props) {
@@ -24,8 +26,22 @@ export default class RecordFormViewIOS extends Component {
       nav: this.props.navigator,
       date: new Date(),
       showDatePicker: false,
-      timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60
+      timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
+      collapsed: true 
     };
+  }
+
+  _toggleExpanded() {
+    this.setState({ collapsed: !this.state.collapsed});
+    this.setState({showDatePicker: !this.state.showDatePicker});
+  }
+
+  _renderHeader(section, i, isActive) {
+    return (
+      <Animatable.View duration={400} style={[styles.header, isActive ? styles.active : styles.inactive]} transition="backgroundColor">
+        <Text style={styles.headerText}>{section.title}</Text>
+      </Animatable.View>
+    );
   }
 
   render() {     
@@ -36,7 +52,8 @@ export default class RecordFormViewIOS extends Component {
                 date={this.state.date}
                 onDateChange={this.onDateChange.bind(this)}
                 timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-                mode="datetime"/> : <View /> ;      
+                mode="datetime"/> : <View /> ; 
+
     return(
         <ScrollView style={styles.list}>
           <View style={[styles.container]} >
@@ -65,18 +82,25 @@ export default class RecordFormViewIOS extends Component {
               </View>
               </View>
 
+            <TouchableHighlight onPress={this._toggleExpanded.bind(this)}>
             <View style={styles.newrecordblock}>
-           <View style={styles.newrecordleft}>
-           <Text style={{height: 40,  fontSize: 16,}}>On</Text>
-           </View>
-           <View style={styles.newrecordright}>
-            <TouchableOpacity style={{height: 40}}
-                 onPress={() => this.setState({showDatePicker: !this.state.showDatePicker})}>
-            <Text style={styles.text}>{moment(this.state.date).format('LLL')}</Text>
-            </TouchableOpacity>
+            
+
+              <View style={styles.newrecordleft}>
+              <Text style={{height: 40,  fontSize: 16,}}>On</Text>
               </View>
 
+              <View style={styles.newrecordright}>
+              <Text style={styles.text}>{moment(this.state.date).format('LLL')}</Text>
+              </View> 
+          </View>
+          </TouchableHighlight>
+
+          <Collapsible collapsed={this.state.collapsed} align="center">
+              <View style={styles.datepicker}>
+              {showDatePicker}
               </View>
+              </Collapsible>
 
               <View style={styles.newrecordblock}>
            <View style={styles.categoryleft}>
@@ -105,9 +129,7 @@ export default class RecordFormViewIOS extends Component {
               </View>
 
           </View>
-          <View style={styles.datepicker}>
-          {showDatePicker}
-          </View>
+          
           </ScrollView>
 
         );
