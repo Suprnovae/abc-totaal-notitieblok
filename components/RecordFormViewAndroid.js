@@ -81,12 +81,14 @@ export default class RecordFormViewAndroid extends Component {
     let offset = hWindow-(paddingTop+hStatusBar+hSoftMenuBar);
 
     return(
-      <View style={{flex: 1}}>
-        <CustomToolbarAndroid
+       <View style={{flex: 1}}>
+        <Icon.ToolbarAndroid
           style={styles.toolbar}
-          navIcon={require('image!toolbar_icon')}
           title='New Record'
-          actions={toolbarActions} />
+          navIconName='close'
+          actions={[
+          { title: 'Save', iconName: 'check', iconColor: 'white', show: 'always' },
+          ]}/>
 
         <View>
           <View style={styles.priceblockAndroid}>
