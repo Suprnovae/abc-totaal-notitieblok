@@ -26,12 +26,10 @@ export default StyleSheet.create({
     flex: 0,
   },
   list:{
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
   descriptionText : {
     fontSize: 15,
-    //alignSelf: 'stretch',
-    //backgroundColor: 'red',
     fontWeight: 'bold',
     margin:20,
     marginTop:-50,
@@ -83,10 +81,21 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
+  priceblockAndroid: {
+    backgroundColor: '#4A4A4A',
+    height:168,
+    flex: 1,
+    flexDirection: 'row',
+  },
   newrecordcurrency:{
     flex: 1,
     margin:10,
     marginTop: 48,
+  },
+  newrecordcurrencyAndroid:{
+    flex: 1,
+    margin:10,
+    marginTop: 58,
   },
   newrecordprice:{
     flex:1,
@@ -97,33 +106,51 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     height:40,
-    backgroundColor:'white'
+    backgroundColor:'#FFFFFF'
+  },
+  newrecordblockAndroid:{
+    flex: 1,
+    flexDirection: 'row',
+    height:50,
+    backgroundColor:'#FFFFFF',
+    borderTopColor: '#C0C0C0', 
+    borderTopWidth: 1,
   },
   newrecordleft:{
     flex:1,
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     margin:10,
   },
   newrecordright:{
     flex:2.5,
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
+  },
+  descriptionAndroid:{
+    flex:1,
+    margin:10,
+    justifyContent: 'center',
   },
   categoryleft:{
     flex:0.3,
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     marginTop:10,
-    marginHorizontal:10
+    marginHorizontal:10,
   },
   categoryright:{
     flex:2.5,
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     marginTop:10,
 
   },
   newrecordicon:{
     flex:0.3,
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     margin:10
+  },
+  timepicker:{
+    flex:0.7,
+    marginTop:10,
+    marginHorizontal:10,
   },
   text:{
     color:'#C0C0C0',

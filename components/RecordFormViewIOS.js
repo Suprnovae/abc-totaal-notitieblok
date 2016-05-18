@@ -86,7 +86,7 @@ export default class RecordFormViewIOS extends Component {
            <Text style={{height: 40,  fontSize: 16,}}>Uncategorized</Text>
               </View>
               <View style={styles.newrecordicon}>
-           <Text style={{height: 40,  fontSize: 16,}}>icon</Text>
+                <Text style={{height: 40,  fontSize: 16,}}>icon</Text>
               </View>
               </View>
 
