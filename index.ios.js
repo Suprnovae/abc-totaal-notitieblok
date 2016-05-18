@@ -36,7 +36,7 @@ let unsubscribe = store.subscribe(() => {
 
 class NotitieBlok extends Component {
   rightButtonPress() {
-    const titles = [
+    var titles = [
       'something happening',
       'talk to the President',
       'something something darkside',
@@ -45,7 +45,10 @@ class NotitieBlok extends Component {
       'give a stranger a hug',
       'send mom flowers',
     ];
-    store.dispatch(addRecord(Math.floor(Math.random()*200), 'XTS', titles[Math.floor(Math.random()*titles.length)]));
+    var price = Math.floor(Math.random()*200);
+    var title = titles[Math.floor(Math.random()*titles.length)]
+
+    store.dispatch(addRecord(price, 'XTS', title));
     return;
       this.refs.nav.navigator.push({
           title: "New Record", // "Camera",

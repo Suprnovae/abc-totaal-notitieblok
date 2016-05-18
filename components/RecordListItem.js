@@ -16,17 +16,17 @@ export default class RecordListItem extends Component {
   }
 
   render() {
-    const record = this.state.record;
+    var record = this.state.record;
 
     return(
       <View>
         <Text style={styles.leftColor}> </Text>
         <View style={styles.recordData}>
-          <Text numberOfLines={1} style={styles.descriptionText}>{record.description}</Text>
-          <Text style={styles.datetimeText}>{record.datetime}</Text>
+          <Text numberOfLines={1} style={styles.descriptionText}>{this.props.record.description}</Text>
+          <Text style={styles.datetimeText}>{this.props.record.datetime}</Text>
         </View>
         <View style = {styles.price}>
-          <Text style={styles.priceText}>{record.price.currency} {record.price.value}</Text>
+          <Text style={styles.priceText}>{this.props.record.price.currency} {this.props.record.price.value}</Text>
         </View>
       </View>
     );

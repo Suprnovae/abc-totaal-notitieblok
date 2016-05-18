@@ -13,7 +13,7 @@ import styles from '../styles/Initial';
 // Shouldn't use of Provider expose the store to all the components contained
 // within the Provider or does it work differently for connected components?
 const RecordListViewIOS = (props, x, y, z) => {
-  const renderRecord = (rowData, sectionID, rowID, highlightRow) => {
+  var renderRecord = (rowData, sectionID, rowID, highlightRow) => {
     console.log("record", rowData);
     return (
       <RecordListItem record={rowData} />
