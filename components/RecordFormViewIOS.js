@@ -9,18 +9,26 @@ import React, {
   NavigatorIOS,
   TouchableHighlight,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 var moment = require('moment');
 
+
 import styles from '../styles/Initial';
 import CameraViewIOS from '../components/CameraViewIOS';
 import Collapsible from 'react-native-collapsible';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/EvilIcons';
+
+const infoIcon = (<Icon name="info" size={20} color="blue" />);
+const addIcon = (<Icon2 name="plus" size={30} color="#00FF00" />);
 
 export default class RecordFormViewIOS extends Component {
+
   constructor(props) {
     super(props);
-
     this.state = {
       dataSource: this.props.records,
       nav: this.props.navigator,
@@ -108,26 +116,28 @@ export default class RecordFormViewIOS extends Component {
 
           <View style={styles.newrecordblock}>
             <View style={styles.categoryleft}>
-              <Text style={{height: 40,  fontSize: 16,}}>Dot</Text>
+              <View style={styles.circle}> 
+              </View>
             </View>
             <View style={styles.categoryright}>
               <Text style={{height: 40,  fontSize: 16,}}>Uncategorized</Text>
             </View>
             <View style={styles.newrecordicon}>
-              <Text style={{height: 40,  fontSize: 16,}}>icon</Text>
+             {infoIcon}
             </View>
+
           </View>
 
+          <TouchableHighlight onPress={this.openCamera.bind(this)}>
           <View style={styles.newrecordblock}>
             <View style={styles.categoryleft}>
-              <Text style={{height: 40,  fontSize: 16}}>icon</Text>
+            {addIcon}
             </View>
             <View style={styles.categoryright}>
-              <TouchableHighlight onPress={this.openCamera.bind(this)}>
-                <Text style={{height: 40,  fontSize: 16}}>Add Scan</Text>
-              </TouchableHighlight>
+                <Text style={{fontSize: 16}}>Add Scan</Text>
             </View>
           </View>
+          </TouchableHighlight>
         </View>
       </ScrollView>
     );

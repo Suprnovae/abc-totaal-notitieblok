@@ -133,13 +133,15 @@ export default StyleSheet.create({
   categoryleft:{
     flex:0.3,
     backgroundColor:'#FFFFFF',
-    marginTop:10,
-    marginHorizontal:10,
+    //marginTop:10,
+    //marginHorizontal:5,
+    padding:5,
   },
   categoryright:{
     flex:2.5,
     backgroundColor:'#FFFFFF',
     marginTop:10,
+    textAlign:'left'
 
   },
   newrecordicon:{
@@ -180,4 +182,19 @@ export default StyleSheet.create({
   inactive: {
     backgroundColor: 'rgba(245,252,255,1)',
   },
+  circle:{
+    width: 10,
+    height: 10,
+    borderRadius: 10/2,
+    backgroundColor: '#DCDCDC',
+    margin:5,
+    marginTop:10
+  },
+  addIcon:{
+    height:20, 
+    width:20, 
+    borderRadius: 20/2,
+    backgroundColor: '#00FF00',
+    marginBottom:40
+  }
 });
