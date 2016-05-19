@@ -81,7 +81,7 @@ export default class RecordFormViewAndroid extends Component {
     let offset = hWindow-(paddingTop+hStatusBar+hSoftMenuBar);
 
     return(
-       <View style={{flex: 1}}>
+      <View style={{flex: 1}}>
         <Icon.ToolbarAndroid
           style={styles.toolbar}
           title='New Record'

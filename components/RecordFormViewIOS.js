@@ -13,7 +13,6 @@ import React, {
 
 var moment = require('moment');
 
-
 import styles from '../styles/Initial';
 import CameraViewIOS from '../components/CameraViewIOS';
 import Collapsible from 'react-native-collapsible';
@@ -21,13 +20,14 @@ import Collapsible from 'react-native-collapsible';
 export default class RecordFormViewIOS extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       dataSource: this.props.records,
       nav: this.props.navigator,
       date: new Date(),
       showDatePicker: false,
       timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
-      collapsed: true 
+      collapsed: true
     };
   }
 
@@ -44,7 +44,7 @@ export default class RecordFormViewIOS extends Component {
     );
   }
 
-  render() {     
+  render() {
     var showDatePicker = this.state.showDatePicker ?
             <DatePickerIOS
                 okText='Ok'
@@ -52,87 +52,77 @@ export default class RecordFormViewIOS extends Component {
                 date={this.state.date}
                 onDateChange={this.onDateChange.bind(this)}
                 timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-                mode="datetime"/> : <View /> ; 
+                mode="datetime"/> : <View /> ;
 
     return(
-        <ScrollView style={styles.list}>
-          <View style={[styles.container]} >
+      <ScrollView style={styles.list}>
+        <View style={[styles.container]} >
           <View style={styles.priceblock}>
-          <View style={styles.newrecordcurrency}>
-            <TextInput
-              style={{height:70, fontSize: 32, fontWeight: 'bold', color:'#2196F3', textAlign:'left'}}
-              defaultValue='USD' />
-              </View>
-           <View style={styles.newrecordprice}>
+            <View style={styles.newrecordcurrency}>
               <TextInput
-              style={{height:90, fontSize: 54, fontWeight: 'bold', color:'#2196F3',textAlign:'right'}}
-              keyboardType='numeric'
-              defaultValue='12.00' />
-               </View>
-              </View>
+                style={{height:70, fontSize: 32, fontWeight: 'bold', color:'#2196F3', textAlign:'left'}}
+                defaultValue='USD' />
+            </View>
+            <View style={styles.newrecordprice}>
+              <TextInput
+                style={{height:90, fontSize: 54, fontWeight: 'bold', color:'#2196F3',textAlign:'right'}}
+                keyboardType='numeric'
+                defaultValue='12.00' />
+            </View>
+          </View>
 
-           <View style={styles.newrecordblock}>
-           <View style={styles.newrecordleft}>
-           <Text style={{height: 40,  fontSize: 16,}}>Description</Text>
-           </View>
-           <View style={styles.newrecordright}>
-            <TextInput
-              style={{height: 40}}
-              placeholder='Enter description of record...' />
-              </View>
-              </View>
+          <View style={styles.newrecordblock}>
+            <View style={styles.newrecordleft}>
+              <Text style={{height: 40,  fontSize: 16,}}>Description</Text>
+            </View>
+            <View style={styles.newrecordright}>
+              <TextInput
+                style={{height: 40}}
+                placeholder='Enter description of record...' />
+            </View>
+          </View>
 
-            <TouchableHighlight onPress={this._toggleExpanded.bind(this)}>
+          <TouchableHighlight onPress={this._toggleExpanded.bind(this)}>
             <View style={styles.newrecordblock}>
-            
-
               <View style={styles.newrecordleft}>
-              <Text style={{height: 40,  fontSize: 16,}}>On</Text>
+                <Text style={{height: 40,  fontSize: 16,}}>On</Text>
               </View>
 
               <View style={styles.newrecordright}>
-              <Text style={styles.text}>{moment(this.state.date).format('LLL')}</Text>
-              </View> 
-          </View>
+                <Text style={styles.text}>{moment(this.state.date).format('LLL')}</Text>
+              </View>
+            </View>
           </TouchableHighlight>
 
           <Collapsible collapsed={this.state.collapsed} align="center">
-              <View style={styles.datepicker}>
-              {showDatePicker}
-              </View>
-              </Collapsible>
+            <View style={styles.datepicker}>{showDatePicker}</View>
+          </Collapsible>
 
-              <View style={styles.newrecordblock}>
-           <View style={styles.categoryleft}>
-           <Text style={{height: 40,  fontSize: 16,}}>Dot</Text>
-           </View>
-           <View style={styles.categoryright}>
-           <Text style={{height: 40,  fontSize: 16,}}>Uncategorized</Text>
-              </View>
-              <View style={styles.newrecordicon}>
-                <Text style={{height: 40,  fontSize: 16,}}>icon</Text>
-              </View>
-              </View>
-
-              <View style={styles.newrecordblock}>
-           <View style={styles.categoryleft}>
-           <Text style={{height: 40,  fontSize: 16}}>icon</Text>
-           </View>
-
-           <View style={styles.categoryright}>
-           <TouchableHighlight onPress={this.openCamera.bind(this)}>
-           
-            <Text style={{height: 40,  fontSize: 16}}>Add Scan</Text>
-          
-            </TouchableHighlight>
-              </View>
-              </View>
-
+          <View style={styles.newrecordblock}>
+            <View style={styles.categoryleft}>
+              <Text style={{height: 40,  fontSize: 16,}}>Dot</Text>
+            </View>
+            <View style={styles.categoryright}>
+              <Text style={{height: 40,  fontSize: 16,}}>Uncategorized</Text>
+            </View>
+            <View style={styles.newrecordicon}>
+              <Text style={{height: 40,  fontSize: 16,}}>icon</Text>
+            </View>
           </View>
-          
-          </ScrollView>
 
-        );
+          <View style={styles.newrecordblock}>
+            <View style={styles.categoryleft}>
+              <Text style={{height: 40,  fontSize: 16}}>icon</Text>
+            </View>
+            <View style={styles.categoryright}>
+              <TouchableHighlight onPress={this.openCamera.bind(this)}>
+                <Text style={{height: 40,  fontSize: 16}}>Add Scan</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    );
   }
 
   onDateChange(date) {
@@ -149,7 +139,4 @@ export default class RecordFormViewIOS extends Component {
       }
     });
   }
-
 }
-
-
