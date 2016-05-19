@@ -47,19 +47,24 @@ class NotitieBlok extends Component {
       'send mom flowers',
     ];
     var price = Math.floor(Math.random()*200);
-    var title = titles[Math.floor(Math.random()*titles.length)]
+    var title = titles[Math.floor(Math.random()*titles.length)];
 
+    // Just an example of how to start the "new record" view
+    this.refs.nav.navigator.push({
+        title: "New Record", // "Camera",
+        component: RecordFormViewIOS, //CameraViewIOS,
+        rightButtonTitle: 'Save',
+        onRightButtonPress: () => {
+            this.refs.nav.navigator.pop();
+        }
+    });
+    // See components/DatabaseManager.js for implementation. This should become
+    // part of the Redux store
+    DatabaseManager.loadAndQueryDB();
+    // example of a call to the Redux store to add a new record, this should be
+    // called as a result of the save operation at the "new record" form
     store.dispatch(addRecord(price, 'XTS', title));
     return;
-      this.refs.nav.navigator.push({
-          title: "New Record", // "Camera",
-          component: RecordFormViewIOS, //CameraViewIOS,
-          rightButtonTitle: 'Save',
-          onRightButtonPress: () => {
-              this.refs.nav.navigator.pop();
-          }
-      });
-      DatabaseManager.loadAndQueryDB();
   }
 
   render() {
