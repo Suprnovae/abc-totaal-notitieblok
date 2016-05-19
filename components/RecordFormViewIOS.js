@@ -27,13 +27,17 @@ export default class RecordFormViewIOS extends Component {
       date: new Date(),
       showDatePicker: false,
       timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
-      collapsed: true
+      collapsed: true,
     };
   }
 
   _toggleExpanded() {
     this.setState({ collapsed: !this.state.collapsed});
     this.setState({showDatePicker: !this.state.showDatePicker});
+  }
+
+  focusTextInputField(nextField) {
+    this.refs[nextField].focus();
   }
 
   _renderHeader(section, i, isActive) {
@@ -71,16 +75,20 @@ export default class RecordFormViewIOS extends Component {
             </View>
           </View>
 
+          <TouchableHighlight onPress={() => this.focusTextInputField('1')}>
           <View style={styles.newrecordblock}>
             <View style={styles.newrecordleft}>
               <Text style={{height: 40,  fontSize: 16,}}>Description</Text>
             </View>
             <View style={styles.newrecordright}>
               <TextInput
+                ref="1"
                 style={{height: 40}}
-                placeholder='Enter description of record...' />
+                placeholder='Enter description of record...' 
+                />
             </View>
           </View>
+          </TouchableHighlight>
 
           <TouchableHighlight onPress={this._toggleExpanded.bind(this)}>
             <View style={styles.newrecordblock}>

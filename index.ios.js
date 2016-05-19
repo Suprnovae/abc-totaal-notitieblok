@@ -68,5 +68,8 @@ class NotitieBlok extends Component {
     );
   }
 }
+console.ignoredYellowBox = [
+      'Warning: Failed propType',
+    ];
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
