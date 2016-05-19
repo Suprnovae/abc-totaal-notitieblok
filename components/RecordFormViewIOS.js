@@ -61,13 +61,13 @@ export default class RecordFormViewIOS extends Component {
             <View style={styles.newrecordcurrency}>
               <TextInput
                 style={{height:70, fontSize: 32, fontWeight: 'bold', color:'#2196F3', textAlign:'left'}}
-                defaultValue='USD' />
+                defaultValue='EUR' />
             </View>
             <View style={styles.newrecordprice}>
               <TextInput
                 style={{height:90, fontSize: 54, fontWeight: 'bold', color:'#2196F3',textAlign:'right'}}
                 keyboardType='numeric'
-                defaultValue='12.00' />
+                placeholder='0.00' />
             </View>
           </View>
 

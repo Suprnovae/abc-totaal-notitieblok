@@ -104,7 +104,7 @@ export default class RecordFormViewAndroid extends Component {
                 style={{height:90, fontSize: 54, fontWeight: 'bold', color:'#2196F3',textAlign:'right'}}
                 keyboardType='numeric'
                 underlineColorAndroid='#4A4A4A'
-                defaultValue='12.00' />
+                placeholder='0.00' />
             </View>
           </View>
 
