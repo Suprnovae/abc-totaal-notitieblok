@@ -54,7 +54,7 @@ class NotitieBlok extends Component {
       this.refs.nav.navigator.push({
           title: "New Record", // "Camera",
           component: RecordFormViewIOS, //CameraViewIOS,
-          rightButtonTitle: 'Cancel',
+          rightButtonTitle: 'Save',
           onRightButtonPress: () => {
               this.refs.nav.navigator.pop();
           }

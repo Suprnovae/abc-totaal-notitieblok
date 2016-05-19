@@ -26,12 +26,10 @@ export default StyleSheet.create({
     flex: 0,
   },
   list:{
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
   descriptionText : {
     fontSize: 15,
-    //alignSelf: 'stretch',
-    //backgroundColor: 'red',
     fontWeight: 'bold',
     margin:20,
     marginTop:-50,
@@ -76,5 +74,110 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginHorizontal:10,
     textAlign: 'right',
+  },
+  priceblock: {
+    backgroundColor: '#4A4A4A',
+    height:150,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  priceblockAndroid: {
+    backgroundColor: '#4A4A4A',
+    height:168,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  newrecordcurrency:{
+    flex: 1,
+    margin:10,
+    marginTop: 48,
+  },
+  newrecordcurrencyAndroid:{
+    flex: 1,
+    margin:10,
+    marginTop: 58,
+  },
+  newrecordprice:{
+    flex:1,
+    justifyContent: 'center',
+    margin:20
+  },
+  newrecordblock:{
+    flex: 1,
+    flexDirection: 'row',
+    height:40,
+    backgroundColor:'#FFFFFF'
+  },
+  newrecordblockAndroid:{
+    flex: 1,
+    flexDirection: 'row',
+    height:50,
+    backgroundColor:'#FFFFFF',
+    borderTopColor: '#C0C0C0', 
+    borderTopWidth: 1,
+  },
+  newrecordleft:{
+    flex:1,
+    backgroundColor:'#FFFFFF',
+    margin:10,
+  },
+  newrecordright:{
+    flex:2.5,
+    backgroundColor:'#FFFFFF',
+  },
+  descriptionAndroid:{
+    flex:1,
+    margin:10,
+    justifyContent: 'center',
+  },
+  categoryleft:{
+    flex:0.3,
+    backgroundColor:'#FFFFFF',
+    marginTop:10,
+    marginHorizontal:10,
+  },
+  categoryright:{
+    flex:2.5,
+    backgroundColor:'#FFFFFF',
+    marginTop:10,
+
+  },
+  newrecordicon:{
+    flex:0.3,
+    backgroundColor:'#FFFFFF',
+    margin:10
+  },
+  timepicker:{
+    flex:0.7,
+    marginTop:10,
+    marginHorizontal:10,
+  },
+  text:{
+    color:'#C0C0C0',
+    marginTop:10,
+    height: 40,  
+    fontSize: 16
+  },
+  datepicker:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    height:220,
+    backgroundColor:'white'
+  },
+  header: {
+    backgroundColor: '#F5FCFF',
+    padding: 10,
+  },
+  headerText: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  active: {
+    backgroundColor: 'rgba(255,255,255,1)',
+  },
+  inactive: {
+    backgroundColor: 'rgba(245,252,255,1)',
   },
 });
