@@ -144,6 +144,17 @@ export default StyleSheet.create({
     textAlign:'left'
 
   },
+  categoryleftAndroid:{
+    flex:0.3,
+    backgroundColor:'#FFFFFF',
+    margin:10,
+    marginTop:10,
+  },
+  categoryrightAndroid:{
+    flex:2.5,
+    backgroundColor:'#FFFFFF',
+    marginTop:10,
+  },
   newrecordicon:{
     flex:0.3,
     backgroundColor:'#FFFFFF',
@@ -190,11 +201,11 @@ export default StyleSheet.create({
     margin:5,
     marginTop:10
   },
-  addIcon:{
-    height:20, 
-    width:20, 
+  circleAndroid:{
+    width: 20,
+    height: 20,
     borderRadius: 20/2,
-    backgroundColor: '#00FF00',
-    marginBottom:40
-  }
+    backgroundColor: '#C0C0C0',
+    margin:5
+  },
 });

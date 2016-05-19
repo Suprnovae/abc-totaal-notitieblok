@@ -16,8 +16,12 @@ var moment = require('moment');
 import ActionButton from 'react-native-action-button';
 import ExtraDimensions from 'react-native-extra-dimensions-android';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/EvilIcons';
+import Icon3 from 'react-native-vector-icons/MaterialIcons';
 import CustomToolbarAndroid from './CustomToolbarAndroid';
 import styles from '../styles/Initial';
+
+const clockIcon = (<Icon2 name="clock" size={30} color="black" />);
 
 export default class RecordFormViewAndroid extends Component {
   constructor(props) {
@@ -82,7 +86,7 @@ export default class RecordFormViewAndroid extends Component {
 
     return(
       <View style={{flex: 1}}>
-        <Icon.ToolbarAndroid
+        <Icon3.ToolbarAndroid
           style={styles.toolbar}
           title='New Record'
           navIconName='close'
@@ -118,10 +122,10 @@ export default class RecordFormViewAndroid extends Component {
           </View>
 
           <View style={styles.newrecordblockAndroid}>
-            <View style={styles.categoryleft}>
-              <Text style={{height: 40,  fontSize: 16, textAlign:'center', marginTop:5}}>ico</Text>
+            <View style={styles.categoryleftAndroid}>
+              <View style={{marginTop:5}}>{clockIcon}</View>
             </View>
-            <View style={styles.categoryright}>
+            <View style={styles.categoryrightAndroid}>
               <TouchableWithoutFeedback
                 onPress={this.showDatePicker.bind(this, 'simple', {date: this.state.simpleDate})}>
                 <Text style={{ color:'black', fontSize: 16, textAlign:'left', marginTop:5}}>{moment(this.state.simpleDate).format('ddd, ll')}</Text>
@@ -141,10 +145,10 @@ export default class RecordFormViewAndroid extends Component {
           </View>
 
           <View style={styles.newrecordblockAndroid}>
-            <View style={styles.categoryleft}>
-              <Text style={{height: 40,  fontSize: 16, textAlign:'center', marginTop:5}}>Dot</Text>
+            <View style={styles.categoryleftAndroid}>
+              <View style={styles.circleAndroid}></View>
             </View>
-            <View style={styles.categoryright}>
+            <View style={styles.categoryrightAndroid}>
               <Text style={{height: 40,  fontSize: 16, color:'gray', marginTop:5}}>Uncategorized</Text>
             </View>
           </View>
