@@ -22,6 +22,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		B842298E1CEDF826009A164A /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B842298D1CEDF811009A164A /* libRNVectorIcons.a */; };
+		B84229A81CEE001F009A164A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B84229A71CEE001F009A164A /* FontAwesome.ttf */; };
+		B84229B61CEE04D0009A164A /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B84229B51CEE04D0009A164A /* EvilIcons.ttf */; };
 		B9ABF68E1CDCFA95005BEAF6 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9ABF6841CDCF946005BEAF6 /* libRCTCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +106,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		B842298C1CEDF811009A164A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B842297D1CEDF811009A164A /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
+			remoteInfo = RNVectorIcons;
+		};
 		B9ABF6831CDCF946005BEAF6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B9ABF67E1CDCF946005BEAF6 /* RCTCamera.xcodeproj */;
@@ -134,6 +144,9 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		B842297D1CEDF811009A164A /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		B84229A71CEE001F009A164A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		B84229B51CEE04D0009A164A /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		B9ABF67E1CDCF946005BEAF6 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B842298E1CEDF826009A164A /* libRNVectorIcons.a in Frameworks */,
 				B9ABF68E1CDCFA95005BEAF6 /* libRCTCamera.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -272,6 +286,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B842297D1CEDF811009A164A /* RNVectorIcons.xcodeproj */,
 				B9ABF67E1CDCF946005BEAF6 /* RCTCamera.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -298,6 +313,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B84229B51CEE04D0009A164A /* EvilIcons.ttf */,
+				B84229A71CEE001F009A164A /* FontAwesome.ttf */,
 				13B07FAE1A68108700A75B9A /* NotitieBlok */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* NotitieBlokTests */,
@@ -312,6 +329,14 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* NotitieBlok.app */,
 				00E356EE1AD99517003FC87E /* NotitieBlokTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B842297E1CEDF811009A164A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B842298D1CEDF811009A164A /* libRNVectorIcons.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -376,9 +401,6 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = FB8J7Q6FL4;
-					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NotitieBlok" */;
@@ -436,6 +458,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = B842297E1CEDF811009A164A /* Products */;
+					ProjectRef = B842297D1CEDF811009A164A /* RNVectorIcons.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -517,6 +543,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B842298D1CEDF811009A164A /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = B842298C1CEDF811009A164A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B9ABF6841CDCF946005BEAF6 /* libRCTCamera.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -540,6 +573,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				B84229B61CEE04D0009A164A /* EvilIcons.ttf in Resources */,
+				B84229A81CEE001F009A164A /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +690,7 @@
 				INFOPLIST_FILE = NotitieBlok/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotitieBlok;
 				PRODUCT_NAME = NotitieBlok;
 				PROVISIONING_PROFILE = "";
 			};
@@ -674,6 +710,7 @@
 				INFOPLIST_FILE = NotitieBlok/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotitieBlok;
 				PRODUCT_NAME = NotitieBlok;
 				PROVISIONING_PROFILE = "";
 			};

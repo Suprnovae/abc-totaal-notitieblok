@@ -14,6 +14,7 @@ import React, {
 } from 'react-native';
 
 import CameraViewIOS from './components/CameraViewIOS';
+import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import styles from './styles/Initial';
 import MockData from './data/records';
@@ -37,9 +38,9 @@ class Main extends Component {
 class NotitieBlok extends Component {
   rightButtonPress() {
       this.refs.nav.navigator.push({
-          title: "Camera",
-          component: CameraViewIOS,
-          rightButtonTitle: 'Cancel',
+          title: "New Record", // "Camera",
+          component: RecordFormViewIOS, //CameraViewIOS,
+          rightButtonTitle: 'Save',
           onRightButtonPress: () => {
               this.refs.nav.navigator.pop();
           }
@@ -59,10 +60,16 @@ class NotitieBlok extends Component {
           onLeftButtonPress: () => {console.log('pressed')},
           onRightButtonPress:this.rightButtonPress.bind(this)
         }}
-        itemWrapperStyle={styles.itemWrapper}
+        itemWrapperStyle={styles.ItemWrapper}
+        tintColor="#FFF"
+        barTintColor = '#2196F3'
+        titleTextColor = "#FFF"
       />
     );
   }
 }
+console.ignoredYellowBox = [
+      'Warning: Failed propType',
+    ];
 
 AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
