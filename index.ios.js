@@ -21,6 +21,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { addRecord } from './actions';
 import basicApp from './reducers';
+import DatabaseManager from './components/DatabaseManager';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -58,6 +59,7 @@ class NotitieBlok extends Component {
               this.refs.nav.navigator.pop();
           }
       });
+      DatabaseManager.loadAndQueryDB();
   }
 
   render() {

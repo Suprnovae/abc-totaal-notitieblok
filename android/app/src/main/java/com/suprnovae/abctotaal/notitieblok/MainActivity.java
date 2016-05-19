@@ -10,6 +10,7 @@ import java.util.List;
 import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.lwansbrough.RCTCamera.*;
+import org.pgsqlite.SQLitePluginPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -40,6 +41,7 @@ public class MainActivity extends ReactActivity {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new ExtraDimensionsPackage(this),
+            new SQLitePluginPackage(this),
             new VectorIconsPackage(),
             new RCTCameraPackage()
         );
