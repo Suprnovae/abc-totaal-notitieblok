@@ -86,12 +86,13 @@ export default class RecordFormViewAndroid extends Component {
 
     return(
       <View style={{flex: 1}}>
-        <Icon3.ToolbarAndroid
+        <ToolbarAndroid
           style={styles.toolbar}
           title='New Record'
-          navIconName='close'
+          icon={require('image!ic_close_white_24dp')}
+          navIcon={require('image!ic_close_white_24dp')}
           actions={[
-          { title: 'Save', iconName: 'check', iconColor: 'white', show: 'always' },
+          { title: 'Save', icon: require('image!ic_check_white_24dp'), show: 'always' },
           ]}/>
 
         <View>
