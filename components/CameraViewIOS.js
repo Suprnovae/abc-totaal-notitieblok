@@ -6,6 +6,7 @@ import React, {
   View
 } from 'react-native';
 import Camera from 'react-native-camera';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class CameraViewIOS extends Component {
 
@@ -29,10 +30,10 @@ class CameraViewIOS extends Component {
           aspect={Camera.constants.Aspect.fill}>
             <View style={styles.buttonBar}>
                 <TouchableHighlight style={styles.button} onPress={this._switchCamera.bind(this)}>
-                    <Text style={styles.buttonText}>Flip</Text>
+                    <Icon name="refresh" size={50} style={{fontSize: 20, height: 22, color: 'white',}}/>
                 </TouchableHighlight>
                 <TouchableHighlight style={styles.button} onPress={this._takePicture.bind(this)}>
-                    <Text style={styles.buttonText}>Take</Text>
+                    <Icon name="camera" size={50} style={{fontSize: 20, height: 22, color: 'white',}}/>
                 </TouchableHighlight>
             </View>
 
@@ -68,14 +69,6 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width
   },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
-  },
   buttonBar: {
     flexDirection: "row",
     position: "absolute",
@@ -86,9 +79,10 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
-    borderWidth: 1,
-    borderColor: "#FFFFFF",
-    margin: 5
+    borderWidth: 0,
+    borderColor: "black",
+    margin: 15,
+    borderRadius: 20,
   },
   buttonText: {
     color: "#FFFFFF"
