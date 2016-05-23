@@ -20,8 +20,8 @@ export default StyleSheet.create({
     overflow: 'hidden',
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    //borderBottomLeftRadius: 20,
+    //borderBottomRightRadius: 20,
   },
   dialpointercover: {
     position: 'absolute',

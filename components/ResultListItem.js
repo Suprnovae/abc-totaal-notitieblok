@@ -15,14 +15,19 @@ import styles from '../styles/Initial';
 // within the Provider or does it work differently for connected components?
 const ResultListItemViewIOS = (props, ...x) => {
   //console.log('props', props, 'x', x);
+  let result = props.result;
+  let maxLevel = 101;
+  let [prognose, realisatie] = [parseFloat(result.Prognose), parseFloat(result.Realisatie)];
+  let level = prognose > 0 ? (realisatie/prognose)*100%maxLevel+1 : 0;
+  console.log('level is', level);
   return(
     <View style={styles.resultentrywithdial}>
-      <DialView initial={0} level={30}/>
+      <DialView initial={0} level={level}/>
       <View style={styles.resultdata}>
-        <Text>€ {props.result.Realisatie} gerealiseerd van € {props.result.Prognose}</Text>
+        <Text>€ {result.Realisatie} gerealiseerd van € {result.Prognose}</Text>
         <View style={styles.tags}>
-          <Text style={[{backgroundColor: 'rgb(90, 200, 250)'}, styles.tag]}>maand {props.result.Maandnr}</Text>
-          <Text style={[{backgroundColor: 'rgb(255, 204, 0)'}, styles.tag]}>{props.result.Functie}</Text>
+          <Text style={[{backgroundColor: 'rgb(90, 200, 250)'}, styles.tag]}>maand {result.Maandnr}</Text>
+          <Text style={[{backgroundColor: 'rgb(255, 204, 0)'}, styles.tag]}>{result.Functie}</Text>
         </View>
       </View>
     </View>
