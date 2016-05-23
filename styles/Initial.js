@@ -5,11 +5,51 @@ import React, {
 export default StyleSheet.create({
   container: {
     flex: 1,
-    //height: 100,
-    //justifyContent: 'center',
-    //alignItems: 'center',
     backgroundColor: '#f3f3f3',
-    //backgroundColor: '#F5FCFF',
+  },
+  dialframe: {
+    flex: 1,
+    //height: 100,
+    width: 100,
+    alignItems: 'center',
+    backgroundColor: 'skyblue',
+    borderWidth: 0,
+    padding: 2,
+    margin: 2,
+    height: 60,
+    overflow: 'hidden',
+  },
+  dialpointercover: {
+    position: 'absolute',
+    alignSelf: 'center',
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    borderWidth: 0,
+    backgroundColor: 'black',
+    top: 40,
+    left:30,
+/*
+    alignSelf: 'center',
+    top: -100,
+    //backgroundColor: 'black',
+    borderColor: 'black',
+    borderWidth: 1,
+*/
+  },
+  dialpointer: {
+    position: 'absolute',
+    height: 100,
+    width: 10,
+    backgroundColor: 'black',
+    top: 10,
+    left:45,
+    borderRadius: 5,
+    /*
+    left: 50,
+    borderColor: 'black',
+    borderWidth: 1,
+*/
   },
   instructions: {
     textAlign: 'center',
@@ -113,7 +153,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     height:50,
     backgroundColor:'#FFFFFF',
-    borderTopColor: '#C0C0C0', 
+    borderTopColor: '#C0C0C0',
     borderTopWidth: 1,
   },
   newrecordleft:{
@@ -155,7 +195,7 @@ export default StyleSheet.create({
   text:{
     color:'#C0C0C0',
     marginTop:10,
-    height: 40,  
+    height: 40,
     fontSize: 16
   },
   datepicker:{
