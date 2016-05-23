@@ -1,0 +1,28 @@
+{
+	"data": [
+  	{
+  		"description": "Winst",
+  		"predicted": "2300.00",
+  		"actual": "4000.00",
+      "gauge": 0.3,
+  		"breakdown": {
+  		}
+  	},
+  	{
+  		"description": "Omzet",
+  		"predicted": "4000.00",
+  		"actual": "2000",
+      "gauge": 0.5,
+  		"breakdown": {
+  		}
+  	},
+  	{
+  		"description": "Prive",
+  		"predicted": "222",
+  		"actual": "5000",
+      "gauge": 1,
+  		"breakdown": {
+  		}
+  	}
+	]
+}
