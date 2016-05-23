@@ -18,6 +18,10 @@ export default StyleSheet.create({
     margin: 2,
     height: 60,
     overflow: 'hidden',
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   dialpointercover: {
     position: 'absolute',
@@ -26,7 +30,7 @@ export default StyleSheet.create({
     width: 40,
     borderRadius: 20,
     borderWidth: 0,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     top: 40,
     left:30,
 /*
@@ -41,7 +45,7 @@ export default StyleSheet.create({
     position: 'absolute',
     height: 100,
     width: 10,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     top: 10,
     left:45,
     borderRadius: 5,
@@ -50,6 +54,27 @@ export default StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
 */
+  },
+  resultentrywithdial: {
+    flexDirection: 'row',
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  resultdata: {
+    padding: 10,
+    marginLeft: 10,
+  },
+  tags: {
+    flexDirection: 'row',
+  },
+  tag: {
+    fontSize: 12,
+    padding: 6,
+    marginRight: 10,
+    //alignSelf: 'center',
+    borderRadius: 6,
+    overflow: 'hidden',
   },
   instructions: {
     textAlign: 'center',

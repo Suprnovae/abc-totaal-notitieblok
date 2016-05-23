@@ -5,6 +5,7 @@
  */
 
 import React, {
+  Animate,
   AppRegistry,
   Component,
   NavigatorIOS,
@@ -13,6 +14,7 @@ import React, {
   ListView,
 } from 'react-native';
 
+import ResultListViewIOS from './components/ResultListViewIOS';
 import CameraViewIOS from './components/CameraViewIOS';
 import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
@@ -82,9 +84,9 @@ class NotitieBlok extends Component {
           ref="nav"
           style={styles.container}
           initialRoute={{
-            component: RecordListIOS,
+            component: ResultListViewIOS,
             passProps: { ds: ds },
-            title: 'Boekingen',
+            title: 'Resultaat',
             leftButtonIcon: require('image!NavBarButtonIcon'),
             rightButtonIcon: require('image!NavBarButtonPlus'),
             onLeftButtonPress: () => {console.log('pressed')},
