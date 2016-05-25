@@ -8,44 +8,63 @@ let results = {
   "data": [
     {
       "description": "Winst",
-      "predicted": " € 20.332,00",
-      "actual": "€ 24.948,00",
+      "predicted": 20332,
+      "actual": 24948,
       "tablets": [
-        { "text": "+ € 4.616,-", "color": "blue" },
+        { "value": 4616, "color": "blue" },
         { "text": "April" }
       ],
       "difference": "€ 4.616,-",
       "timespan": "1Q",
-      "gauge": 20332/24948,
+      "gauge": 1,
+      "visor": 20332/24948,
       "breakdown": {
       }
     },
     {
       "description": "Omzet",
-      "predicted": "€ 41.000,-",
-      "actual": "€ 48.735,-",
+      "predicted": 41000,
+      "actual": 48735,
       "tablets": [
-        { "text": "€ 7.735,-", "color": "green" },
+        { "value": 7735, "color": "green" },
         { "text": "April 2016" },
       ],
       "difference": "- € 2000.00",
       "timespan": "2015",
-      "gauge": 41000/48735,
+      "gauge": 1,
+      "visor": 41000/48735,
       "breakdown": {
       }
     },
     {
       "description": "Prive",
-      "predicted": "€ 60.000,-",
-      "actual": "€ 45.095,-",
+      "predicted": 60000,
+      "actual": 45095,
       "tablets": [
-        { "text": "+ € 14.905,-", "color": "red" },
+        { "value": 14905, "color": "red" },
         { "text": "April 2016" },
-        { "text": "D", "color": "orange" }
+        //{ "text": "D", "color": "orange" }
       ],
       "difference": "+ € 3.8K",
       "timespan": "1 jan - 23 mei",
       "gauge": 1,
+      "visor": 45095/60000,
+      "breakdown": {
+      }
+    },
+    {
+      "description": "Valt nog in te halen",
+      "predicted": 20000,
+      "actual": 0,
+      "tablets": [
+        { "value": 2040, "color": "red" },
+        { "text": "April 2016" },
+        //{ "text": "D", "color": "orange" }
+      ],
+      "difference": "+ € 3.8K",
+      "timespan": "1 jan - 23 mei",
+      "gauge": 1,
+      "visor": 1,
       "breakdown": {
       }
     }

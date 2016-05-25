@@ -18,12 +18,18 @@ export default StyleSheet.create({
   rainbow: {
     margin: 0,
     marginTop: 0,
-    bottom: 20,
+    left: 0,
+    top: -5,
   },
   dial: {
     position: 'absolute',
-    bottom: -70,
-    left: 90,
+    bottom: -(180/2),
+    left: (260/2)-(80/2),
+  },
+  loop: {
+    position: 'absolute',
+    bottom: -(260/2),
+    left: (260/2)-(26/2),
   },
   title: {
     marginTop: 10,
