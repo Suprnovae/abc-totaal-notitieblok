@@ -7,7 +7,7 @@ import React, {
 } from 'react-native';
 
 import styles from '../styles/Gauge';
-import results from '../data/results.json';
+import results from '../data/results';
 import SemiGaugeView from './SemiGaugeView';
 
 // FIX: How do we get access to a store inside the components?
