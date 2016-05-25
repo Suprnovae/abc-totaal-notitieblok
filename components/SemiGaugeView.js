@@ -1,6 +1,7 @@
 import React, {
   Animated,
   Component,
+  Dimensions,
   Image,
   View,
   ScrollView,
@@ -35,10 +36,18 @@ class SemiGaugeView extends Component {
     });
 
     let result = this.props.result;
+    let style = [styles.tab, styles.diff];
+    let tags = result.tablets.map(
+      (obj, key) => <Text key={key} style={style}>{obj.text}</Text>
+    );
+
     return(
       <View style={styles.container}>
         <Text style={styles.title}>{result.description}</Text>
         <Text style={styles.value}>{result.actual}</Text>
+        <View style={[styles.tabs, {width: Dimensions.get('window').width}]}>
+          {tags}
+        </View>
         <View style={styles.gauge}>
           <Image source={require('../img/bow.png')} style={styles.rainbow} />
           <Animated.Image source={require('../img/dial.png')} style={[styles.dial, { transform: [ { rotate: changeRotation, } ] }]} />

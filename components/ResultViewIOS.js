@@ -6,7 +6,7 @@ import React, {
   PropTypes,
 } from 'react-native';
 
-import styles from '../styles/Initial';
+import styles from '../styles/Gauge';
 import results from '../data/results.json';
 import SemiGaugeView from './SemiGaugeView';
 
@@ -19,8 +19,11 @@ const ResultViewIOS = (props, x, y, z) => {
   //console.log(resultsDataSet.ManagementInformatie.WinAdm[0].Jaar);
   const renderer = (data, section, row, highlight) =>
     <SemiGaugeView result={data}/>
+  // Use pagingEnabled prop on ScrollView to control horizontal scroll
   return(
-    <ScrollView style={styles.list}>
+    <ScrollView style={styles.list}
+      bounces={true}
+      indicatorStyle={'white'} >
       <ListView
         dataSource={ds.cloneWithRows(results.data)}
         renderRow={renderer}

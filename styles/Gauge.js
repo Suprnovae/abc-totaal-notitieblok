@@ -6,6 +6,9 @@ export default StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: 'rgb(74, 74, 74)',
+    padding: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333'
   },
   gauge: {
     width: 260,
@@ -13,24 +16,56 @@ export default StyleSheet.create({
     bottom: 0,
   },
   rainbow: {
-    margin: 5,
+    margin: 0,
     marginTop: 0,
-    bottom: 0,
+    bottom: 20,
   },
   dial: {
     position: 'absolute',
-    bottom: -90,
+    bottom: -70,
     left: 90,
   },
   title: {
-    paddingTop: 10,
+    marginTop: 10,
     color: '#2196F3',
+    color: 'white',
     fontSize: 36,
   },
   value: {
-    paddingTop: 10,
+    marginTop: 5,
+    marginBottom: 10,
     color: '#2196F3',
+    color: 'white',
     fontSize: 28,
-    paddingBottom: 20,
-  }
+
+  },
+  tabs: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 35,
+    flexWrap: 'wrap',
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  tab: {
+    color: 'white',
+    fontSize: 16,
+    margin: 2.5,
+    textAlign: 'center',
+    textAlignVertical: 'bottom',
+  },
+  diff: {
+    padding: 5,
+    paddingBottom: 2,
+    //paddingTop: 6,
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+  list:{
+    backgroundColor: '#333',
+  },
 });

@@ -1,28 +1,48 @@
 {
-	"data": [
-  	{
-  		"description": "Winst",
-  		"predicted": "2300.00",
-  		"actual": "4000.00",
+  "data": [
+    {
+      "description": "Winst",
+      "predicted": " € 2300.00",
+      "actual": "€ 4000.00",
+      "tablets": [
+        { "text": "+ € 1700.00", "color": "green" },
+        { "text": "1Q" }
+      ],
+      "difference": "+ € 1700.00",
+      "timespan": "1Q",
       "gauge": 0.3,
-  		"breakdown": {
-  		}
-  	},
-  	{
-  		"description": "Omzet",
-  		"predicted": "4000.00",
-  		"actual": "2000",
+      "breakdown": {
+      }
+    },
+    {
+      "description": "Omzet",
+      "predicted": "€ 4000.00",
+      "actual": "€ 2000",
+      "tablets": [
+        { "text": "- € 2K", "color": "red" },
+        { "text": "2015" },
+        { "text": "" }
+      ],
+      "difference": "- € 2000.00",
+      "timespan": "2015",
       "gauge": 0.5,
-  		"breakdown": {
-  		}
-  	},
-  	{
-  		"description": "Prive",
-  		"predicted": "222",
-  		"actual": "5000",
+      "breakdown": {
+      }
+    },
+    {
+      "description": "Prive and very long description that will screw up the layout",
+      "predicted": "€ 222,00",
+      "actual": "€ 5000,00",
+      "tablets": [
+        { "text": "+ € 3.8K", "color": "red" },
+        { "text": "1 jan - 23 mei" },
+        { "text": "D", "color": "orange" }
+      ],
+      "difference": "+ € 3.8K",
+      "timespan": "1 jan - 23 mei",
       "gauge": 1,
-  		"breakdown": {
-  		}
-  	}
-	]
+      "breakdown": {
+      }
+    }
+  ]
 }
