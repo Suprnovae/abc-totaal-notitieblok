@@ -24,6 +24,8 @@ import basicApp from './reducers';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
+import LoginIOS from './components/LoginIOS';
+
 const initialState = {
   token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
   records: [], //MockData.records
@@ -46,18 +48,18 @@ class NotitieBlok extends Component {
       'send mom flowers',
     ];
     var price = Math.floor(Math.random()*200);
-    var title = titles[Math.floor(Math.random()*titles.length)]
+    var title = titles[Math.floor(Math.random()*titles.length)];
 
     store.dispatch(addRecord(price, 'XTS', title));
-    return;
-      this.refs.nav.navigator.push({
-          title: "New Record", // "Camera",
-          component: RecordFormViewIOS, //CameraViewIOS,
-          rightButtonTitle: 'Cancel',
-          onRightButtonPress: () => {
-              this.refs.nav.navigator.pop();
-          }
-      });
+    //return;
+    this.refs.nav.navigator.push({
+      title: "Login",//"New Record", // "Camera",
+      component: LoginIOS,//RecordFormViewIOS, //CameraViewIOS,
+      rightButtonTitle: 'Cancel',
+      onRightButtonPress: () => {
+        this.refs.nav.navigator.pop();
+      }
+    });
   }
 
   render() {
@@ -80,7 +82,7 @@ class NotitieBlok extends Component {
             title: 'Boekingen',
             leftButtonIcon: require('image!NavBarButtonIcon'),
             rightButtonIcon: require('image!NavBarButtonPlus'),
-            onLeftButtonPress: () => {console.log('pressed')},
+            onLeftButtonPress: () => {console.log('pressed');},
             onRightButtonPress:this.rightButtonPress.bind(this)
           }}
           itemWrapperStyle={styles.ItemWrapper}
