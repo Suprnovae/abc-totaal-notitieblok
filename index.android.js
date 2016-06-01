@@ -18,6 +18,7 @@ import React, {
 import CameraViewAndroid from './components/CameraViewAndroid';
 import LedgerViewAndroid from './components/LedgerViewAndroid';
 import RecordFormViewAndroid from './components/RecordFormViewAndroid';
+import ResultViewAndroid from './components/ResultViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
@@ -41,7 +42,7 @@ class NotitieBlok extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{name: 'ABC Notitie Blok', id:'home' ,index: 0}}
+        initialRoute={{name: 'Resultaat', id:'overview' ,index: 0}}
         renderScene={this.renderScene.bind(this)}
         configureScene={route => (
           route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump
@@ -61,7 +62,12 @@ class NotitieBlok extends Component {
     });
 
     switch (route.id) {
-    case 'home':
+    case 'overview':
+      return(
+        <ResultViewAndroid
+          navigator={navigator} />
+      );
+    case 'ledger':
       return(
         <LedgerViewAndroid
           navigator={navigator}

@@ -17,7 +17,7 @@ import RecordListViewAndroid from './RecordListViewAndroid';
 import DatabaseManager from './DatabaseManager';
 import styles from '../styles/Initial';
 
-class HomeViewAndroid extends Component {
+class LedgerViewAndroid extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,4 +66,4 @@ class HomeViewAndroid extends Component {
   }
 };
 
-module.exports = HomeViewAndroid;
+module.exports = LedgerViewAndroid;
