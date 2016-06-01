@@ -15,7 +15,6 @@ import React, {
 } from 'react-native';
 
 import ResultViewIOS from './components/ResultViewIOS';
-import ResultListViewIOS from './components/ResultListViewIOS';
 import CameraViewIOS from './components/CameraViewIOS';
 import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
