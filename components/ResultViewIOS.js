@@ -16,7 +16,6 @@ import SemiGaugeView from './SemiGaugeView';
 const ResultViewIOS = (props, x, y, z) => {
   let ds = new ListView.DataSource({rowHasChanged: (a, b) => a !== b});
 
-  //console.log(resultsDataSet.ManagementInformatie.WinAdm[0].Jaar);
   const renderer = (data, section, row, highlight) =>
     <SemiGaugeView result={data}/>
   // Use pagingEnabled prop on ScrollView to control horizontal scroll

@@ -16,7 +16,7 @@ import React, {
 } from 'react-native';
 
 import CameraViewAndroid from './components/CameraViewAndroid';
-import HomeViewAndroid from './components/HomeViewAndroid';
+import LedgerViewAndroid from './components/LedgerViewAndroid';
 import RecordFormViewAndroid from './components/RecordFormViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
@@ -63,7 +63,7 @@ class NotitieBlok extends Component {
     switch (route.id) {
     case 'home':
       return(
-        <HomeViewAndroid
+        <LedgerViewAndroid
           navigator={navigator}
           records={this.state.dataSource} />
       );
