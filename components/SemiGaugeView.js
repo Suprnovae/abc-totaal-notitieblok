@@ -10,6 +10,8 @@ import React, {
 } from 'react-native';
 
 import styles from '../styles/Gauge';
+import Intl from 'intl';
+
 
 class SemiGaugeView extends Component {
   constructor(props) {
@@ -47,7 +49,7 @@ class SemiGaugeView extends Component {
       outputRange: ['rgb(241, 28, 64)', 'rgb(116, 240, 67)' ,'rgb(52, 168, 249)'],
     });
 
-    let valueFormatter = Intl.NumberFormat('nl-NL', {
+    let valueFormatter = new Intl.NumberFormat('nl-NL', {
       style: 'currency',
       currency: 'EUR',
       minimumFractionDigits: 0
