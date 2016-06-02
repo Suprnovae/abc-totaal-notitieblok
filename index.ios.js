@@ -19,13 +19,15 @@ import CameraViewIOS from './components/CameraViewIOS';
 import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import RecordListIOS from './containers/RecordListIOS';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { createStore } from 'redux';
 import { addRecord } from './actions';
 import basicApp from './reducers';
 import DatabaseManager from './components/DatabaseManager';
 import styles from './styles/Initial';
 import MockData from './data/records';
+
+import LoginIOS from './components/LoginIOS';
 
 const initialState = {
   token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
@@ -52,6 +54,7 @@ class NotitieBlok extends Component {
     var title = titles[Math.floor(Math.random()*titles.length)];
 
     // Just an example of how to start the "new record" view
+    /*
     this.refs.nav.navigator.push({
         title: "New Record", // "Camera",
         component: RecordFormViewIOS, //CameraViewIOS,
@@ -60,13 +63,22 @@ class NotitieBlok extends Component {
             this.refs.nav.navigator.pop();
         }
     });
+    */
     // See components/DatabaseManager.js for implementation. This should become
     // part of the Redux store
     DatabaseManager.loadAndQueryDB();
     // example of a call to the Redux store to add a new record, this should be
     // called as a result of the save operation at the "new record" form
     store.dispatch(addRecord(price, 'XTS', title));
-    return;
+
+    this.refs.nav.navigator.push({
+      title: "Login",//"New Record", // "Camera",
+      component: LoginIOS,//RecordFormViewIOS, //CameraViewIOS,
+      rightButtonTitle: 'Cancel',
+      onRightButtonPress: () => {
+        this.refs.nav.navigator.pop();
+      }
+    });
   }
 
   render() {
@@ -89,7 +101,7 @@ class NotitieBlok extends Component {
             title: 'Resultaat',
             leftButtonIcon: require('image!NavBarButtonIcon'),
             rightButtonIcon: require('image!NavBarButtonPlus'),
-            onLeftButtonPress: () => {console.log('pressed')},
+            onLeftButtonPress: () => {console.log('pressed');},
             onRightButtonPress:this.rightButtonPress.bind(this)
           }}
           itemWrapperStyle={styles.ItemWrapper}

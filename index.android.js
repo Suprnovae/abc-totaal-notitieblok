@@ -22,6 +22,8 @@ import ResultViewAndroid from './components/ResultViewAndroid';
 import styles from './styles/Initial';
 import MockData from './data/records';
 
+import LoginANDROID from './components/LoginANDROID';
+
 const actions = [
   {title: 'Settings', icon: require('image!app_logo'), show: 'always'},
   {title: 'Boom', icon: require('image!app_logo'), show: 'always'},
@@ -83,7 +85,13 @@ class NotitieBlok extends Component {
         <CameraViewAndroid
           navigator={navigator}
           route={route} {...this.props} />
-     );
+      );
+    case 'login':
+      return (
+        <LoginANDROID
+          navigator={navigator}
+          route={route} {...this.props} />
+      );
     }
   }
 }

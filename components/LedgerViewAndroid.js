@@ -44,6 +44,9 @@ class LedgerViewAndroid extends Component {
             <ActionButton.Item buttonColor='#1abc9c' title="camera" onPress={this._openCamera.bind(this)}>
               <Icon name="camera" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
             </ActionButton.Item>
+            <ActionButton.Item buttonColor='#1abc9c' title="login" onPress={this._login.bind(this)}>
+              <Icon name="sign-in" size={30} style={{fontSize: 20, height: 22, color: 'white',}}/>
+            </ActionButton.Item>
           </ActionButton>
         </View>
       );
@@ -63,6 +66,13 @@ class LedgerViewAndroid extends Component {
       title: 'New Record',
     });
     DatabaseManager.loadAndQueryDB();
+  }
+
+  _login(){
+    this.state.nav.push({
+      id:'login',
+      title:'Login'
+    });
   }
 };
 
