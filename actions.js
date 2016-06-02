@@ -16,3 +16,9 @@ export function addRecord(price, currency = 'XTS', description, category, image,
     }
   };
 }
+export function initRecord(data) {
+  return {
+    type: LOAD_RECORD,
+    content: data
+  };
+}
