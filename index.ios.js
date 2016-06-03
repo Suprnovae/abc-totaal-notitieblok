@@ -59,7 +59,12 @@ class NotitieBlok extends Component {
         component: RecordFormViewIOS, //CameraViewIOS,
         rightButtonTitle: 'Save',
         onRightButtonPress: () => {
+            this.state.customRightBtnAction && this.state.customRightBtnAction();
             this.refs.nav.navigator.pop();
+          console.log();
+        },
+        setRightButtonPress: (customRightBtnAction) => {
+          this.setState({customRightBtnAction});
         }
     });
     // See components/DatabaseManager.js for implementation. This should become

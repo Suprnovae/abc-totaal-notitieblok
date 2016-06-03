@@ -151,6 +151,16 @@ DatabaseManager.prototype.GetListRecords = function () {
   });
 
 }
+DatabaseManager.prototype.AddRecord = function (price, currency = 'XTS', description, category, image, datetime = (new Date).toISOString()) {
+  db.transaction((tx) => {
+    tx.executeSql('INSERT INTO Records (description, category, attachment, value_cents, value_currency, datetime_string) VALUES (?, ?, ?, ?, ?, ?)', [description, category, image, price, currency, datetime]);
+
+    tx.executeSql('SELECT * FROM Records', [], (tx, results) => {
+      console.log(results);
+    });
+
+  });
+}
 
 DatabaseManager.prototype.deleteDatabase = function() {
   console.log("Deleting database ...");

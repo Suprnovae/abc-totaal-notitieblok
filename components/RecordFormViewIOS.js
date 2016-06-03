@@ -12,6 +12,9 @@ import React, {
 } from 'react-native';
 
 var moment = require('moment');
+import { addRecord, initRecord} from '../actions';
+import store from '../store'
+import DatabaseManager from './DatabaseManager';
 
 import styles from '../styles/Initial';
 import CameraViewIOS from '../components/CameraViewIOS';
@@ -25,10 +28,18 @@ export default class RecordFormViewIOS extends Component {
       dataSource: this.props.records,
       nav: this.props.navigator,
       date: new Date(),
+      currency: 'EUR',
+      price: null,
+      description:'',
       showDatePicker: false,
       timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
       collapsed: true
     };
+    this.rightBtnPress = this.rightBtnPress.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.route.setRightButtonPress(this.rightBtnPress);
   }
 
   _toggleExpanded() {
@@ -45,6 +56,7 @@ export default class RecordFormViewIOS extends Component {
   }
 
   render() {
+    console.log(this.props);
     var showDatePicker = this.state.showDatePicker ?
             <DatePickerIOS
                 okText='Ok'
@@ -61,13 +73,19 @@ export default class RecordFormViewIOS extends Component {
             <View style={styles.newrecordcurrency}>
               <TextInput
                 style={{height:70, fontSize: 32, fontWeight: 'bold', color:'#2196F3', textAlign:'left'}}
-                defaultValue='EUR' />
+                defaultValue='EUR'
+                onChangeText={this.onChangeCurrency.bind(this)}
+                value={this.state.currency}
+                />
             </View>
             <View style={styles.newrecordprice}>
               <TextInput
                 style={{height:90, fontSize: 54, fontWeight: 'bold', color:'#2196F3',textAlign:'right'}}
                 keyboardType='numeric'
-                placeholder='0.00' />
+                placeholder='0.00'
+                onChangeText={this.onChangePrice.bind(this)}
+                value={this.state.price}
+                />
             </View>
           </View>
 
@@ -78,7 +96,11 @@ export default class RecordFormViewIOS extends Component {
             <View style={styles.newrecordright}>
               <TextInput
                 style={{height: 40}}
-                placeholder='Enter description of record...' />
+                placeholder='Enter description of record...'
+                onChangeText={this.onChangeDescription.bind(this)}
+                value={this.state.description}
+                />
+
             </View>
           </View>
 
@@ -124,8 +146,27 @@ export default class RecordFormViewIOS extends Component {
       </ScrollView>
     );
   }
+  rightBtnPress() {
+    //console.warn("CUSTOM RIGHT BTN ACTION");
+    console.log(this.state);
+    store.dispatch(addRecord(this.state.price, this.state.currency, this.state.description,'',this.state.date));
+    DatabaseManager.AddRecord(this.state.price, this.state.currency, this.state.description, '', '', this.state.date);
 
+  }
+  onChangeDescription(DescriptionText) {
+    console.log('description:'+DescriptionText);
+    this.setState({description: DescriptionText});
+  }
+  onChangeCurrency(CurrencyText) {
+    console.log('currency:'+CurrencyText);
+    this.setState({currency: CurrencyText});
+  }
+  onChangePrice(PriceText) {
+    console.log('price:'+PriceText);
+    this.setState({price: PriceText});
+  }
   onDateChange(date) {
+    console.log('date:'+date);
     this.setState({date: date});
   };
 
