@@ -18,23 +18,28 @@ import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import RecordListIOS from './containers/RecordListIOS';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { addRecord } from './actions';
-import basicApp from './reducers';
+import store from './store'
+import DatabaseManager from './components/DatabaseManager';
 import styles from './styles/Initial';
-import MockData from './data/records';
 
-const initialState = {
-  token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
-  records: [], //MockData.records
-};
 
-const store = createStore(basicApp, initialState);
 let unsubscribe = store.subscribe(() => {
   console.log("state changed to", store.getState());
 });
 
 class NotitieBlok extends Component {
+  componentWillMount() {
+    DatabaseManager.loadAndQueryDB();
+    DatabaseManager.GetListRecords();
+    //let recordsDB =
+    //console.log(recordsDB);
+    //recordsDB.map(record => {
+    //    console.log(record);
+    //  }
+    //);
+    //store.dispatch(addRecord(Math.floor(Math.random()*200), 'XTS', 'something happening'));
+
+  }
   rightButtonPress() {
     var titles = [
       'something happening',
@@ -46,18 +51,30 @@ class NotitieBlok extends Component {
       'send mom flowers',
     ];
     var price = Math.floor(Math.random()*200);
-    var title = titles[Math.floor(Math.random()*titles.length)]
+    var title = titles[Math.floor(Math.random()*titles.length)];
 
-    store.dispatch(addRecord(price, 'XTS', title));
+    // Just an example of how to start the "new record" view
+    this.refs.nav.navigator.push({
+        title: "New Record", // "Camera",
+        component: RecordFormViewIOS, //CameraViewIOS,
+        rightButtonTitle: 'Save',
+        onRightButtonPress: () => {
+            this.state.customRightBtnAction && this.state.customRightBtnAction();
+            this.refs.nav.navigator.pop();
+          console.log();
+        },
+        setRightButtonPress: (customRightBtnAction) => {
+          this.setState({customRightBtnAction});
+        }
+    });
+    // See components/DatabaseManager.js for implementation. This should become
+    // part of the Redux store
+       //DatabaseManager.loadAndQueryDB();
+    // example of a call to the Redux store to add a new record, this should be
+    // called as a result of the save operation at the "new record" form
+    //store.dispatch(addRecord(price, 'XTS', title));
+
     return;
-      this.refs.nav.navigator.push({
-          title: "New Record", // "Camera",
-          component: RecordFormViewIOS, //CameraViewIOS,
-          rightButtonTitle: 'Cancel',
-          onRightButtonPress: () => {
-              this.refs.nav.navigator.pop();
-          }
-      });
   }
 
   render() {

@@ -47,7 +47,7 @@ class NotitieBlok extends Component {
           route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump
         )}
         ref="navigator"/>
-    );
+    )
   }
 
   renderScene(route, navigator) {
@@ -77,7 +77,7 @@ class NotitieBlok extends Component {
         <CameraViewAndroid
           navigator={navigator}
           route={route} {...this.props} />
-      );
+     );
     }
   }
 }
