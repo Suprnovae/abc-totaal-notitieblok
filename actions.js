@@ -14,6 +14,8 @@ const getOverview = (token) => {
   return fetch(API_URI, { headers });
 };
 
+// NOTE: Often I will get or fetch some information asyncronously, to call an
+// update action on success upon which the application state is mutated.
 export function addRecord(price, currency = 'XTS', description, category, image, datetime = (new Date).toISOString()) {
   return {
     type: SAVE_RECORD,
@@ -80,6 +82,7 @@ export function saveReport(content) {
   }
 };
 
+// get report from local storage (async)
 export function getReport() {
   return (dispatch, getState) => {
     console.log('getReport');
@@ -93,7 +96,7 @@ export function getReport() {
   }
 }
 
-// fetch from source
+// fetch from source (async)
 export function fetchReport(passed, failed) {
   return (dispatch, getState) => {
     const fail = response => {
@@ -133,15 +136,18 @@ export function fetchReport(passed, failed) {
   }
 };
 
+// clear report in state (sync)
 export function clearReport(payload) {
   console.log('clearReport', payload);
   return { type: CLEAR_REPORT, content: {} };
 };
 
+// update auth creds state (sync)
 export function updateBasicAuthCredentials(handle, secret) {
   return { type: UPDATE_CREDENTIALS, handle, secret };
 };
 
+// save auth creds (async)
 export function saveBasicAuthCredentials(handle, secret) {
   const data = { basic: { handle, secret } };
   return (dispatch, getState) => {
