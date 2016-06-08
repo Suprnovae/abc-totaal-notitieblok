@@ -21,11 +21,11 @@ function overview(state = {}, action) {
     case UPDATE_REPORT:
       console.log('received update for report', action.content);
       return {
-        stamp: action.report.updatedAt,
-        content: action.report.data,
-        comment: action.report.comment,
-        organization: action.report.organization.name,
-        shortname: action.report.organization.shortname,
+        stamp: action.report ? action.report.updatedAt : Date.now(),
+        content: action.report ? action.report.data : [],
+        comment: action.report ? action.report.comment : null,
+        organization: action.report ? action.report.organization.name : null,
+        shortname: action.report ? action.report.organization.shortname : null,
       };
     case CLEAR_REPORT:
       return {
