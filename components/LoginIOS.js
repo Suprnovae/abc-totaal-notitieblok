@@ -79,7 +79,6 @@ const form = (props) =>
       <TextInput
         placeholder="Email"
         placeholderTextColor="rgba(255,255,255,0.75)"
-        defaultValue={"yoda@jedi.order"}
         keyboardType="email-address"
         selectionColor="white"
         style={styles.input}
