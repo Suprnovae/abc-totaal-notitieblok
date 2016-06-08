@@ -25,7 +25,7 @@ import thunk from 'redux-thunk';
 import { addRecord, getReport } from './actions';
 import basicApp from './reducers';
 import DatabaseManager from './components/DatabaseManager';
-import styles from './styles/Initial';
+import styles, { colors } from './styles/Initial';
 import MockData from './data/records';
 
 import LoginIOS from './components/LoginIOS';
@@ -112,9 +112,9 @@ class NotitieBlok extends Component {
             onRightButtonPress:this.rightButtonPress.bind(this)
           }}
           itemWrapperStyle={styles.ItemWrapper}
-          tintColor="#FFF"
-          barTintColor = '#2196F3'
-          titleTextColor = "#FFF"
+          tintColor={colors.tint}
+          barTintColor={colors.background}
+          titleTextColor={colors.title}
         />
       </Provider>
     );

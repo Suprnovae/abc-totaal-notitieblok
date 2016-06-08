@@ -2,6 +2,12 @@ import React, {
   StyleSheet,
 } from 'react-native';
 
+export const colors  = {
+  background: '#2196F3',
+  title: '#fff',
+  tint: '#fff',
+};
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -87,7 +93,7 @@ export default StyleSheet.create({
   },
   toolbar: {
     height: 56,
-    backgroundColor: '#2196F3',
+    backgroundColor: 'rgba(100, 0, 0, 100)', //74, 144, 226, 100)', //'#2196F3',
     flex: 0,
   },
   list:{
