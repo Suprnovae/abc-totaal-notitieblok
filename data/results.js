@@ -5,7 +5,8 @@
 // Prive;;April;60.000;45.095;14.905
 //
 let results = {
-  "data": [
+  "data": []
+    /*
     {
       "description": "Winst",
       "predicted": 20332,
@@ -68,7 +69,7 @@ let results = {
       "breakdown": {
       }
     }
-  ]
+  ]*/
 }
 
 export default results;

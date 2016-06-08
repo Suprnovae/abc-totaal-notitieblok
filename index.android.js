@@ -29,6 +29,19 @@ const actions = [
   {title: 'Boom', icon: require('image!app_logo'), show: 'always'},
 ];
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { addRecord } from './actions';
+import basicApp from './reducers';
+
+// TODO: refactor to central file for both iOS and Android
+const initialState = {
+  auth: {},
+  records: [],
+};
+
+const store = createStore(basicApp, initialState);
+
 class NotitieBlok extends Component {
   constructor(props) {
     super(props);
@@ -43,14 +56,16 @@ class NotitieBlok extends Component {
 
   render() {
     return (
-      <Navigator
-        initialRoute={{name: 'Resultaat', id:'overview' ,index: 0}}
-        renderScene={this.renderScene.bind(this)}
-        configureScene={route => (
-          route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump
-        )}
-        ref="navigator"/>
-    )
+      <Provider store={store}>
+        <Navigator
+          initialRoute={{name: 'Resultaat', id:'overview' ,index: 0}}
+          renderScene={this.renderScene.bind(this)}
+          configureScene={route => (
+            route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump
+          )}
+          ref="navigator"/>
+      </Provider>
+    );
   }
 
   renderScene(route, navigator) {

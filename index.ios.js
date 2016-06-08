@@ -20,8 +20,9 @@ import RecordFormViewIOS from './components/RecordFormViewIOS';
 import RecordListViewIOS from './components/RecordListViewIOS';
 import RecordListIOS from './containers/RecordListIOS';
 import { Provider, connect } from 'react-redux';
-import { createStore } from 'redux';
-import { addRecord } from './actions';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { addRecord, getReport } from './actions';
 import basicApp from './reducers';
 import DatabaseManager from './components/DatabaseManager';
 import styles from './styles/Initial';
@@ -30,14 +31,18 @@ import MockData from './data/records';
 import LoginIOS from './components/LoginIOS';
 
 const initialState = {
-  token: 'YouReallyDidntExpectMeToHardcodeThatOrDidYou?',
-  records: [], //MockData.records
+  auth: {},
+  records: [],
+  overview: {
+    content: [],
+  },
 };
 
-const store = createStore(basicApp, initialState);
+const store = createStore(basicApp, initialState, applyMiddleware(thunk));
 let unsubscribe = store.subscribe(() => {
   console.log("state changed to", store.getState());
 });
+store.dispatch(getReport());
 
 class NotitieBlok extends Component {
   rightButtonPress() {
@@ -74,10 +79,12 @@ class NotitieBlok extends Component {
     this.refs.nav.navigator.push({
       title: "Login",//"New Record", // "Camera",
       component: LoginIOS,//RecordFormViewIOS, //CameraViewIOS,
+      /*
       rightButtonTitle: 'Cancel',
       onRightButtonPress: () => {
         this.refs.nav.navigator.pop();
       }
+      */
     });
   }
 
@@ -99,8 +106,8 @@ class NotitieBlok extends Component {
             component: ResultViewIOS,
             passProps: { ds: ds },
             title: 'Resultaat',
-            leftButtonIcon: require('image!NavBarButtonIcon'),
-            rightButtonIcon: require('image!NavBarButtonPlus'),
+            //leftButtonIcon: require('image!NavBarButtonIcon'),
+            rightButtonIcon: require('image!NavBarButtonAccount'),
             onLeftButtonPress: () => {console.log('pressed');},
             onRightButtonPress:this.rightButtonPress.bind(this)
           }}
