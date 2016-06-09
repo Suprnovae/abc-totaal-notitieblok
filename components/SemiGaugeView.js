@@ -13,18 +13,23 @@ import styles from '../styles/Gauge';
 import Intl from 'intl';
 
 
+// p = 10, c = 8
+//   c/p=8/10=10/10-2/10
+// p = 10, c = 12
+//   c/p=12/10=10/10+2/10
+
 class SemiGaugeView extends Component {
   constructor(props) {
     super(props);
     let result = props.result;
-    let achieved = result.actual/(result.predicted*2);
-    console.log("achieved ", achieved);
+    let achieved = result.actual/(result.predicted);
+    console.log(result.actual,'/',result.predicted,'=', achieved);
     if(achieved < 0) { achieved = 0; }
-    if(achieved > 1) { achieved = 1; }
+    if(achieved > 2) { achieved = 2; }
 
     this.state = {
       _pointerLevel: achieved,
-      _visorLevel: 0.5,
+      _visorLevel: 1,
       _pointerLevelAnim: new Animated.Value(0),
       _visorLevelAnim: new Animated.Value(0),
     };
@@ -37,7 +42,7 @@ class SemiGaugeView extends Component {
 
   render() {
     let profile = {
-      inputRange: [0, 1],
+      inputRange: [0, 2],
       outputRange: ['-75deg', '75deg'],
     };
 

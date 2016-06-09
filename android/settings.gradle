@@ -1,4 +1,4 @@
-rootProject.name = 'ABCTotaalCockpit'
+rootProject.name = 'WinAdm Cockpit'
 
 include ':app'
 include ':ExtraDimensions', ':app'

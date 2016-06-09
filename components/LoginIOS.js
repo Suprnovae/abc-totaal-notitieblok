@@ -129,6 +129,11 @@ const form = (props) =>
 //  <Text style={styles.socialText}>Boekingen</Text>;
 
 const container = (props, something, another, blah) => {
+  const footer = null;
+//  const footer = <TouchableOpacity style={styles.footer} activeOpacity={0.8} onPress={() => this.changeSignup()}>
+//    {footerText(props)}
+//  </TouchableOpacity>;
+
   return <View style={styles.container}>
     <ScrollView
       keyboardShouldPersistTaps={false}
@@ -140,9 +145,7 @@ const container = (props, something, another, blah) => {
         {form(props)}
       </View>
       <View style={styles.horizontalLine} />
-      <TouchableOpacity style={styles.footer} activeOpacity={0.8} onPress={() => this.changeSignup()}>
-        {footerText(props)}
-      </TouchableOpacity>
+      {footer}
     </ScrollView>
   </View>;
 }

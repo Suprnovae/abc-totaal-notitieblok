@@ -42,7 +42,7 @@ const initialState = {
 
 const store = createStore(basicApp, initialState);
 
-class ABCTotaalCockpit extends Component {
+class WinAdmCockpit extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -111,4 +111,4 @@ class ABCTotaalCockpit extends Component {
   }
 }
 
-AppRegistry.registerComponent('ABCTotaalCockpit', () => ABCTotaalCockpit);
+AppRegistry.registerComponent('WinAdm Cockpit', () => WinAdmCockpit);

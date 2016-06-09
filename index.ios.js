@@ -44,7 +44,7 @@ let unsubscribe = store.subscribe(() => {
 });
 store.dispatch(getReport());
 
-class ABCTotaalCockpit extends Component {
+class WinAdmCockpit extends Component {
   rightButtonPress() {
     var titles = [
       'something happening',
@@ -89,7 +89,7 @@ class ABCTotaalCockpit extends Component {
   }
 
   render() {
-    console.log("ABCTotaalCockpit");
+    console.log("WinAdm Cockpit");
     // FIX: Figure out why rowHasChanged is never fired. Somehow we append the
     // dataset and perform the cloneWithRows inside components/RecordListViewIOS
     // but the rowHasChanged check is never executed.
@@ -121,4 +121,4 @@ class ABCTotaalCockpit extends Component {
   }
 }
 
-AppRegistry.registerComponent('ABCTotaalCockpit', () => ABCTotaalCockpit);
+AppRegistry.registerComponent('WinAdm Cockpit', () => WinAdmCockpit);

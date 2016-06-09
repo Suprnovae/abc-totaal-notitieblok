@@ -8,7 +8,7 @@ export const UPDATE_CREDENTIALS = 'UPDATE_CREDS';
 
 import { AsyncStorage } from 'react-native';
 
-const API_URI = 'http://staging.abc-totaal-api.supr.nu/overview.json';
+const API_URI = 'https://cockpit-production-abctotaal.herokuapp.com/overview.json';
 const getOverview = (token) => {
   let headers = new Headers({ 'Authorization': `Basic ${token}` });
   return fetch(API_URI, { headers });
