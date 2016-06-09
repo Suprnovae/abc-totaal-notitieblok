@@ -42,7 +42,7 @@ const initialState = {
 
 const store = createStore(basicApp, initialState);
 
-class NotitieBlok extends Component {
+class ABCTotaalCockpit extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -111,4 +111,4 @@ class NotitieBlok extends Component {
   }
 }
 
-AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
+AppRegistry.registerComponent('ABCTotaalCockpit', () => ABCTotaalCockpit);

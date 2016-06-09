@@ -1,4 +1,4 @@
-rootProject.name = 'NotitieBlok'
+rootProject.name = 'ABCTotaalCockpit'
 
 include ':app'
 include ':ExtraDimensions', ':app'

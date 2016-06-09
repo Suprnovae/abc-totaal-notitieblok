@@ -44,7 +44,7 @@ let unsubscribe = store.subscribe(() => {
 });
 store.dispatch(getReport());
 
-class NotitieBlok extends Component {
+class ABCTotaalCockpit extends Component {
   rightButtonPress() {
     var titles = [
       'something happening',
@@ -89,7 +89,7 @@ class NotitieBlok extends Component {
   }
 
   render() {
-    console.log("NotitieBlok");
+    console.log("ABCTotaalCockpit");
     // FIX: Figure out why rowHasChanged is never fired. Somehow we append the
     // dataset and perform the cloneWithRows inside components/RecordListViewIOS
     // but the rowHasChanged check is never executed.
@@ -121,4 +121,4 @@ class NotitieBlok extends Component {
   }
 }
 
-AppRegistry.registerComponent('NotitieBlok', () => NotitieBlok);
+AppRegistry.registerComponent('ABCTotaalCockpit', () => ABCTotaalCockpit);
